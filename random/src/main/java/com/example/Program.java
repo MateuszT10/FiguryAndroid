@@ -19,7 +19,7 @@ public class Program {
     public static String[] jakaFigura = new String[15];
     public static String[] polaFigur = new String[15];
     public static String[] cechaFigur = new String[15];
-
+    String dupa = new String();
 //.....................................................................//
 
     public static void main(String[] args) {
