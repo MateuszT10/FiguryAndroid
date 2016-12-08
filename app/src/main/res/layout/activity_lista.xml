@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:background="@drawable/kwadracik"
+        android:layout_height="58dp">
+
+        <TextView
+            android:text="Figura"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:width="100dp"
+            android:textColor="#bc322d"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:id="@+id/textView6"
+            android:layout_weight="0.26"
+            android:textSize="24sp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginStart="7dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="Cecha"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:textColor="#6e11a4"
+            android:textStyle="bold"
+            android:layout_height="match_parent"
+            android:width="100dp"
+            android:id="@+id/textView4"
+            android:layout_weight="0.35"
+            android:textSize="24sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="9dp"
+            android:layout_marginEnd="9dp" />
+
+        <TextView
+            android:text="Pole"
+            android:width="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#463ae9"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:id="@+id/textView5"
+            android:layout_weight="0.38"
+            android:textSize="24sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/kwadracikscroll"
+            android:orientation="vertical" >
+
+            <GridView
+                android:id="@+id/grid"
+                android:layout_width="match_parent"
+                android:layout_height="405dp"
+                android:columnWidth="90dp"
+                android:minHeight="200dp"
+                android:numColumns="3"
+                android:verticalSpacing="15dp"
+                android:horizontalSpacing="10dp"
+                android:stretchMode="columnWidth"
+                android:gravity="center" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
