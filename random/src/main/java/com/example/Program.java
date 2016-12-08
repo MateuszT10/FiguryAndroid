@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 //import com.example
 
@@ -14,7 +16,8 @@ public class Program {
     Float sumaKol = new Float(0); // suma pol kol
 
     Integer N = 15; // liczba figur
-    Figura[] figury = new Figura[N]; //tablica N figur
+    //Figura[] figury = new Figura[N]; //tablica N figur
+    List<Figura> figury = new ArrayList<Figura>(); //Array list obiektow klasy Figura
     public static String[] sFigury = new String[15];
     public static String[] jakaFigura = new String[15];
     public static String[] polaFigur = new String[15];
@@ -30,36 +33,36 @@ public class Program {
 
     void  generator() {
 
-        Integer[] tablicaFigur = new Integer[N];
+        List<Integer> tablicaFigur = new ArrayList<Integer>();
         Random generator = new Random(); //obiekt klasy Random
 
         for (int i = 0; i < N ; i++) {
-            tablicaFigur[i] = (generator.nextInt(3)); // losujemy figury
+            tablicaFigur.add(generator.nextInt(3));// losujemy figury
             //0 to kwadrat, 1 to trojkat, 2 to kolo
         }
 
         for (int i = 0; i < N; i++) {
-            switch (tablicaFigur[i]) {
+            switch (tablicaFigur.get(i)) {
                 case 0:
-                    figury[i] = new Kwadrat(generator.nextFloat()); // tworzenie kwadratu
-                    sumaKwadratow += figury[i].getPole(); //sumowanie pol kwadratow
+                    figury.add(new Kwadrat(generator.nextFloat())); // tworzenie kwadratu
+                   // sumaKwadratow += figury.get(figury.getPole()); //sumowanie pol kwadratow
                     jakaFigura[i] = "Kwadrat";
-                    polaFigur[i] = String.format("%.3f",figury[i].pole);
-                    cechaFigur[i] = String.format("przekatna\n%.3f",figury[i].przekatna);
+                 //   polaFigur[i] = String.format("%.3f",figury[i].pole);
+                  // cechaFigur[i] = String.format("przekatna\n%.3f",figury[i].przekatna);
                     break;
                 case 1:
-                    figury[i] = new Trojkat(generator.nextFloat()); //tworzenie trojkata
-                    sumaTrojkatow += figury[i].getPole(); //sumowanie pol trojkatow
+                 //   figury[i] = new Trojkat(generator.nextFloat()); //tworzenie trojkata
+                 //   sumaTrojkatow += figury[i].getPole(); //sumowanie pol trojkatow
                     jakaFigura[i] = "Trojkat";
-                    polaFigur[i] = String.format("%.3f",figury[i].pole);
-                    cechaFigur[i] = String.format("wysokosc\n%.3f",figury[i].wysokosc);
+                 //   polaFigur[i] = String.format("%.3f",figury[i].pole);
+                  //  cechaFigur[i] = String.format("wysokosc\n%.3f",figury[i].wysokosc);
                     break;
                 case 2:
-                    figury[i] = new Kolo(generator.nextFloat()); // tworzenie kola
-                    sumaKol += figury[i].getPole(); // sumowanie pol kol
+                 //   figury[i] = new Kolo(generator.nextFloat()); // tworzenie kola
+                 //   sumaKol += figury[i].getPole(); // sumowanie pol kol
                     jakaFigura[i] = "Kolo";
-                    polaFigur[i] = String.format("%.3f",figury[i].pole);
-                    cechaFigur[i] = String.format("srednica\n%.3f",figury[i].srednica);
+                //    polaFigur[i] = String.format("%.3f",figury[i].pole);
+                 //   cechaFigur[i] = String.format("srednica\n%.3f",figury[i].srednica);
                     break;
                 default:
                     break;
