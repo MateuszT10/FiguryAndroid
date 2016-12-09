@@ -10,18 +10,14 @@ public class Kolo extends Figura {
         }
         public Kolo(float srednica){ // Konstruktor
             this.srednica = srednica;
-            obliczPole(this.srednica);
+            obliczPole(srednica);
         }
         void obliczPole(float srednica){
             pole = (float)Math.PI * (srednica * srednica) / 4;
         }
-        public void wyswietl(){ //Wyswietlanie obiektu
-            System.out.format("Kolo    o polu %.3f i srednicy  %.3f",pole,srednica);
-        }
-        public String sWyswietl(){
-         return  String.format("Kolo        o polu %.3f i srednicy      %.3f",pole,srednica);
-        }
-        public String getCecha(){
+        public String getCechaString(){
             return String.format("srednica\n%.3f",this.srednica);
+        }
+        public String jakaFiguraString(){return String.format("Kolo");
         }
 }

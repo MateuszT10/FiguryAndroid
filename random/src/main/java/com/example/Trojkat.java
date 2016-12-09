@@ -11,18 +11,16 @@ public class Trojkat extends Figura {
         }
         public Trojkat(float wysokosc){ // Konstruktor
             this.wysokosc = wysokosc;
-            obliczPole(this.wysokosc);
+            obliczPole(wysokosc);
         }
         void obliczPole(float wysokosc){
             pole = (wysokosc * wysokosc) / (float)Math.sqrt(3);
         }
-        public void wyswietl(){ //Wyswietlanie obiektu
-            System.out.format("Trojkat o polu %.3f i wysokosci %.3f",pole,wysokosc);
-        }
-        public String sWyswietl(){
-            return  String.format("Trojkat   o polu %.3f i wysokosci  %.3f",pole,wysokosc);
-        }
-        public String getCecha(){
+
+        public String getCechaString(){
             return String.format("wysokosc\n%.3f",this.wysokosc);
+        }
+        public String jakaFiguraString(){
+            return String.format("Trojkat");
         }
 }

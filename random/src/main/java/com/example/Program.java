@@ -12,8 +12,6 @@ import java.util.Random;
 
 public class Program {
 
-    List<Integer> jakaFigura = new ArrayList<Integer>();    //0 to kwadrat, 1 to trojkat, 2 to kolo
-
     public Float sumaKwadratow = new Float(0); //suma pol kwadratow
     public Float sumaTrojkatow = new Float(0); // suma pol trojkatow
     public Float sumaKol = new Float(0); // suma pol kol
@@ -23,8 +21,9 @@ public class Program {
 
     public static void main(String[] args) {
         Program program = new Program(); // nowy obiekt klasy program
-
-        program.addFigura(); // dodawanie nowej figury
+        for(int i=0; i<10; i++){
+            program.addFigura(); // dodawanie nowej figury
+        }
         program.wyswietlanie(); // wyswietlanie figur w konsoli
     }
 
@@ -32,7 +31,6 @@ public class Program {
 
         Random generator = new Random(); //obiekt klasy Random
             Integer nowaFigura = generator.nextInt(3);
-            jakaFigura.add(nowaFigura);// dodajemy figure
             //0 to kwadrat, 1 to trojkat, 2 to kolo
 
         switch (nowaFigura) {
@@ -56,22 +54,14 @@ public class Program {
 
     private void wyswietlanie() { // wyswietlanie w konsoli
         for(int i = 0; i < figury.size();i++){
-            switch(jakaFigura.get(i)){
-                case 0:
-                    System.out.println("Kwadrat");  break;
-                case 1:
-                    System.out.println("Trojkat"); break;
-                case 2:
-                    System.out.println("Kolo"); break;
-                default: break;
-            }
-            System.out.println(figury.get(i).getCecha());
-            System.out.println(figury.get(i).getStringPole());
-            System.out.println("Suma kol " + sumaKol);
-            System.out.println("Suma kwadratow " + sumaKwadratow);
-            System.out.println("Suma trojkatow " + sumaTrojkatow);
-
+            System.out.println(figury.get(i).jakaFiguraString());
+            System.out.println(figury.get(i).getCechaString());
+            System.out.println(figury.get(i).getPoleString());
         }
+        System.out.println("Suma kol " + sumaKol);
+        System.out.println("Suma kwadratow " + sumaKwadratow);
+        System.out.println("Suma trojkatow " + sumaTrojkatow);
+        System.out.println("Ilosc figur " + figury.size());
     }
 }
 

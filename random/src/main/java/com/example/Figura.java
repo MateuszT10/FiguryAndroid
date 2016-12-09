@@ -9,21 +9,17 @@ public abstract class Figura {
         public Figura(){
 
         }
-        public void wyswietl() {
 
-        }
-        public float getPole(){
-                return pole;
-        }
-        public String getStringPole() {
+        public float getPole(){return pole;}
+
+        public String getPoleString() {
                 return String.format( "%.3f", pole);
         }
 
-        public String getCecha(){
+        public String getCechaString(){
                 return String.format("Sialalal");
         }
 
-        public String sWyswietl() {
-                return "Klasa Figura";
+        public String jakaFiguraString(){ return  String.format("Figura");
         }
 }
