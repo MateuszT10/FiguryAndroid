@@ -23,7 +23,7 @@ public class Program {
         program.wyswietlanie(); // wyswietlanie figur w konsoli
     }
 
-    public void  addFigura() {
+    public void addFigura() {
 
         Random generator = new Random(); //obiekt klasy Random
             Integer nowaFigura = generator.nextInt(3);
@@ -42,6 +42,9 @@ public class Program {
             default:
                 break;
         }
+    }
+    public void deleteFigura(int index){ // kasujemy figure o danym indeksie
+        figury.remove(index);
     }
     public Float sumaPol(){
         return sumaKwadratow() + sumaTrojkatow() + sumaKol();
