@@ -12,9 +12,11 @@ public abstract class Figura {
         public void wyswietl() {
 
         }
-
-        public float getPole() {
+        public float getPole(){
                 return pole;
+        }
+        public String getStringPole() {
+                return String.format( "%.3f", pole);
         }
 
         public String getCecha(){

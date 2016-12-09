@@ -24,7 +24,7 @@ public class Program {
     public static void main(String[] args) {
         Program program = new Program(); // nowy obiekt klasy program
 
-        program.addFigura(); // generowanie wartosci i figur
+        program.addFigura(); // dodawanie nowej figury
         program.wyswietlanie(); // wyswietlanie figur w konsoli
     }
 
@@ -32,7 +32,7 @@ public class Program {
 
         Random generator = new Random(); //obiekt klasy Random
             Integer nowaFigura = generator.nextInt(3);
-            jakaFigura.add(nowaFigura);// losujemy figure
+            jakaFigura.add(nowaFigura);// dodajemy figure
             //0 to kwadrat, 1 to trojkat, 2 to kolo
 
         switch (nowaFigura) {
@@ -66,7 +66,7 @@ public class Program {
                 default: break;
             }
             System.out.println(figury.get(i).getCecha());
-            System.out.println(figury.get(i).getPole());
+            System.out.println(figury.get(i).getStringPole());
             System.out.println("Suma kol " + sumaKol);
             System.out.println("Suma kwadratow " + sumaKwadratow);
             System.out.println("Suma trojkatow " + sumaTrojkatow);
