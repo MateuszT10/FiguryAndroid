@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista);
         Program program = new Program(); //obiekt klasy program
-        program.generatorNFigur(N); // generacje N figur
+        program.addFigura(); // generacje N figur
 
 
 //        String[] stringi= new String[45]; // lista wszystkich figur wraz z cechami i polami

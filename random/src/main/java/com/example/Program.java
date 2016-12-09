@@ -25,48 +25,45 @@ public class Program {
     public static void main(String[] args) {
         Program program = new Program(); // nowy obiekt klasy program
 
-        program.generatorNFigur(5); // generowanie wartosci i figur
+        program.addFigura(); // generowanie wartosci i figur
         program.wyswietlanie(5); // wyswietlanie figur w konsoli
     }
 
-    public void  generatorNFigur( Integer NFigur ) {
+    public void  addFigura() {
 
         List<Integer> tablicaFigur = new ArrayList<Integer>();
         Random generator = new Random(); //obiekt klasy Random
-
-        for (int i = 0; i < NFigur ; i++) {
-            tablicaFigur.add(generator.nextInt(3));// losujemy figury
+            Integer nowaFigura = generator.nextInt(3);
+            tablicaFigur.add(nowaFigura);// losujemy figure
             //0 to kwadrat, 1 to trojkat, 2 to kolo
-        }
 
-        for (int i = 0; i < NFigur; i++) {
-            switch (tablicaFigur.get(i)) {
-                case 0:
-                    figury.add(new Kwadrat(generator.nextFloat())); // tworzenie kwadratu
-                    sumaKwadratow += figury.get(i).getPole(); //sumowanie pol kwadratow
-                    jakaFigura.add("Kwadrat");
-                    polaFigur.add(String.format("%.3f",figury.get(i).pole));
-                    cechaFigur.add(String.format("przekatna\n%.3f",figury.get(i).przekatna));
-                    break;
-                case 1:
-                    figury.add(new Trojkat(generator.nextFloat())); //tworzenie trojkata
-                    sumaTrojkatow += figury.get(i).getPole(); //sumowanie pol trojkatow
-                    jakaFigura.add("Trojkat");
-                    polaFigur.add(String.format("%.3f",figury.get(i).pole));
-                    cechaFigur.add(String.format("wysokosc\n%.3f",figury.get(i).wysokosc));
-                    break;
-                case 2:
-                    figury.add(new Kolo(generator.nextFloat())); // tworzenie kola
-                    sumaKol += figury.get(i).getPole(); // sumowanie pol kol
-                    jakaFigura.add("Kolo");
-                    polaFigur.add(String.format("%.3f",figury.get(i).pole));
-                    cechaFigur.add(String.format("srednica\n%.3f",figury.get(i).srednica));
-                    break;
-                default:
-                    break;
-            }
+        switch (nowaFigura) {
+            case 0:
+                figury.add(new Kwadrat(generator.nextFloat())); // tworzenie kwadratu
+                sumaKwadratow += figury.get(i).getPole(); //sumowanie pol kwadratow
+                jakaFigura.add("Kwadrat");
+                polaFigur.add(String.format("%.3f",figury.get(i).pole));
+                cechaFigur.add(String.format("przekatna\n%.3f",figury.get(i).przekatna));
+                break;
+            case 1:
+                figury.add(new Trojkat(generator.nextFloat())); //tworzenie trojkata
+                sumaTrojkatow += figury.get(i).getPole(); //sumowanie pol trojkatow
+                jakaFigura.add("Trojkat");
+                polaFigur.add(String.format("%.3f",figury.get(i).pole));
+                cechaFigur.add(String.format("wysokosc\n%.3f",figury.get(i).wysokosc));
+                break;
+            case 2:
+                figury.add(new Kolo(generator.nextFloat())); // tworzenie kola
+                sumaKol += figury.get(i).getPole(); // sumowanie pol kol
+                jakaFigura.add("Kolo");
+                polaFigur.add(String.format("%.3f",figury.get(i).pole));
+                cechaFigur.add(String.format("srednica\n%.3f",figury.get(i).srednica));
+                break;
+            default:
+                break;
         }
     }
+
 
     private void wyswietlanie(Integer NFigur) { // wyswietlanie w konsoli
         for (int i = 0; i < NFigur; i++) {
