@@ -22,32 +22,32 @@ public class MainActivity extends AppCompatActivity {
         program.main(ala); //wywolanie main z modulu java
 
 
-        String[] stringi= new String[45]; // lista wszystkich figur wraz z cechami i polami
-                                          // zaadaptowana do wyswietlania w grid
-
-        for(int i = 0; i< 45; i++ ){
-            int nWiersz = i % 3;
-            int nKolumna = i / 3;
-                switch(nWiersz) {
-                    case 0:
-                        stringi[i] = program.jakaFigura[nKolumna];
-                        break;
-                    case 1:
-                        stringi[i] = program.polaFigur[nKolumna];
-                        break;
-                    case 2:
-                        stringi[i] = program.cechaFigur[nKolumna];
-                        break;
-                    default:
-                        break;
-                }
-        }
-        List<String> values=new ArrayList<String>(Arrays.asList(stringi));
-
-
-        GridView myGrid=(GridView)findViewById(R.id.grid);
-
-        myGrid.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,values));
+//        String[] stringi= new String[45]; // lista wszystkich figur wraz z cechami i polami
+//                                          // zaadaptowana do wyswietlania w grid
+//
+//        for(int i = 0; i< 45; i++ ){
+//            int nWiersz = i % 3;
+//            int nKolumna = i / 3;
+//                switch(nWiersz) {
+//                    case 0:
+//                        stringi[i] = program.jakaFigura.get();
+//                        break;
+//                    case 1:
+//                        stringi[i] = program.polaFigur[nKolumna];
+//                        break;
+//                    case 2:
+//                        stringi[i] = program.cechaFigur[nKolumna];
+//                        break;
+//                    default:
+//                        break;
+//                }
+//        }
+//        List<String> values=new ArrayList<String>(Arrays.asList(stringi));
+//
+//
+//        GridView myGrid=(GridView)findViewById(R.id.grid);
+//
+//        myGrid.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,values));
 
     }
 }

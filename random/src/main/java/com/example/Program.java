@@ -17,9 +17,9 @@ public class Program {
 
     Integer N = 15; // liczba figur
     //Figura[] figury = new Figura[N]; //tablica N figur
-    List<Figura> figury = new ArrayList<Figura>(); //Array list obiektow klasy Figura
+    public List<Figura> figury = new ArrayList<Figura>(); //Array list obiektow klasy Figura
     public static String[] sFigury = new String[15];
-    public static String[] jakaFigura = new String[15];
+    public List<String> jakaFigura = new ArrayList<String>();
     public static String[] polaFigur = new String[15];
     public static String[] cechaFigur = new String[15];
 //.....................................................................//
@@ -45,22 +45,22 @@ public class Program {
             switch (tablicaFigur.get(i)) {
                 case 0:
                     figury.add(new Kwadrat(generator.nextFloat())); // tworzenie kwadratu
-                   // sumaKwadratow += figury.get(figury.getPole()); //sumowanie pol kwadratow
-                    jakaFigura[i] = "Kwadrat";
+                    sumaKwadratow += figury.get(i).getPole(); //sumowanie pol kwadratow
+                    jakaFigura.add("Kwadrat");
                  //   polaFigur[i] = String.format("%.3f",figury[i].pole);
                   // cechaFigur[i] = String.format("przekatna\n%.3f",figury[i].przekatna);
                     break;
                 case 1:
-                 //   figury[i] = new Trojkat(generator.nextFloat()); //tworzenie trojkata
-                 //   sumaTrojkatow += figury[i].getPole(); //sumowanie pol trojkatow
-                    jakaFigura[i] = "Trojkat";
+                    figury.add(new Trojkat(generator.nextFloat())); //tworzenie trojkata
+                    sumaTrojkatow += figury.get(i).getPole(); //sumowanie pol trojkatow
+                    jakaFigura.add("Trojkat");
                  //   polaFigur[i] = String.format("%.3f",figury[i].pole);
                   //  cechaFigur[i] = String.format("wysokosc\n%.3f",figury[i].wysokosc);
                     break;
                 case 2:
-                 //   figury[i] = new Kolo(generator.nextFloat()); // tworzenie kola
-                 //   sumaKol += figury[i].getPole(); // sumowanie pol kol
-                    jakaFigura[i] = "Kolo";
+                    figury.add(new Kolo(generator.nextFloat())); // tworzenie kola
+                    sumaKol += figury.get(i).getPole(); // sumowanie pol kol
+                    jakaFigura.add("Kolo");
                 //    polaFigur[i] = String.format("%.3f",figury[i].pole);
                  //   cechaFigur[i] = String.format("srednica\n%.3f",figury[i].srednica);
                     break;
@@ -79,7 +79,7 @@ public class Program {
     void wyswietlanie() {
         for (int i = 0; i < N; i++) {
            //System.out.println(sFigury[i]);
-            System.out.println(jakaFigura[i]);
+            System.out.println(jakaFigura.get(i));
             System.out.println(polaFigur[i]);
             System.out.println(cechaFigur[i]);
         }
