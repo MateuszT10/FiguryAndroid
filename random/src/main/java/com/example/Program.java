@@ -18,32 +18,37 @@ public class Program {
     public static void main(String[] args) { // testowanie
         Program program = new Program(); // nowy obiekt klasy program
         for(int i=0; i<10; i++){
-            program.addFigura(); // dodawanie nowej figury
+            program.addFigura( (float )4.0, (float)7.0); // dodawanie nowej figury
         }
         program.wyswietlanie(); // wyswietlanie figur w konsoli
     }
-
-    public void addFigura() {
-
+    private float generujCeche(){// metoda generujaca
         Random generator = new Random(); //obiekt klasy Random
-            Integer nowaFigura = generator.nextInt(3);
+        return generator.nextFloat();
+    }
+    private Integer generujFigure(){// metoda generujaca
+        Random generator = new Random(); //obiekt klasy Random
+        return generator.nextInt(3);
+    }
+    public void addFigura(float min,float max) {
+            Integer nowaFigura = generujFigure();
             //0 to kwadrat, 1 to trojkat, 2 to kolo
 
         switch (nowaFigura) {
             case 0:
-                figury.add(new Kwadrat(MinMax((float)3,(float)5,generator.nextFloat()))); // tworzenie kwadratu
+                figury.add(new Kwadrat(minMax(min,max,generujCeche()))); // tworzenie kwadratu
                 break;
             case 1:
-                figury.add(new Trojkat(MinMax((float)3,(float)5,generator.nextFloat()))); //tworzenie trojkata
+                figury.add(new Trojkat(minMax(min,max,generujCeche()))); //tworzenie trojkata
                 break;
             case 2:
-                figury.add(new Kolo(MinMax((float)3,(float)5,generator.nextFloat()))); // tworzenie kola
+                figury.add(new Kolo(minMax(min,max,generujCeche()))); // tworzenie kola
                 break;
             default:
                 break;
         }
     }
-    public Float MinMax(float min, float max, float random){ // zwraca liczbe randomowa z przedzialu min max
+    public Float minMax(float min, float max, float random){ // zwraca liczbe randomowa z przedzialu min max
         return (max-min) * random + min;
     }
     public void deleteFigura(int index){ // kasujemy figure o danym indeksie
@@ -52,37 +57,43 @@ public class Program {
     public Float sumaPolKwadratow(){ // zwraca sume pol Kwadratow
         float sumaKwadratow = 0;
         for(int i=0; i< figury.size();i++)
+            if(figury.get(i).jakaFiguraString().equals("Kwadrat"))
              sumaKwadratow += figury.get(figury.size()-1).getPole(); //sumowanie pol kwadratow
         return sumaKwadratow;
     }
     public Float sumaPolTrojkatow(){ // zwraca sume pol Trojkatow
         float sumaTrojkatow = 0;
-        for(int i=0; i< figury.size();i++)
-             sumaTrojkatow += figury.get(figury.size()-1).getPole(); //sumowanie pol trojkatow
+            for(int i=0; i< figury.size();i++)
+                if(figury.get(i).jakaFiguraString().equals("Trojkat"))
+                    sumaTrojkatow += figury.get(figury.size()-1).getPole(); //sumowanie pol trojkatow
         return sumaTrojkatow;
     }
     public Float sumaPolKol(){ // zwraca sume pol Kol
         float sumaKol = 0;
         for(int i=0; i< figury.size();i++)
-             sumaKol += figury.get(figury.size()-1).getPole(); // sumowanie pol kol
+            if(figury.get(i).jakaFiguraString().equals("Kolo"))
+                sumaKol += figury.get(figury.size()-1).getPole(); // sumowanie pol kol
         return sumaKol;
     }
     public Float sumaPrzekatnychKwadratow(){ // zwraca sume pol Kwadratow
         float sumaKwadratow = 0;
         for(int i=0; i< figury.size();i++)
-            sumaKwadratow += figury.get(figury.size()-1).getCecha(); //sumowanie pol kwadratow
+            if(figury.get(i).jakaFiguraString().equals("Kwadrat"))
+                sumaKwadratow += figury.get(figury.size()-1).getCecha(); //sumowanie pol kwadratow
         return sumaKwadratow;
     }
     public Float sumaWysokosciTrojkatow(){ // zwraca sume pol Trojkatow
         float sumaTrojkatow = 0;
         for(int i=0; i< figury.size();i++)
-            sumaTrojkatow += figury.get(figury.size()-1).getCecha(); //sumowanie pol trojkatow
+            if(figury.get(i).jakaFiguraString().equals("Trojkat"))
+                sumaTrojkatow += figury.get(figury.size()-1).getCecha(); //sumowanie pol trojkatow
         return sumaTrojkatow;
     }
     public Float sumaSrednicyKol(){ // zwraca sume pol Kol
         float sumaKol = 0;
         for(int i=0; i< figury.size();i++)
-            sumaKol += figury.get(figury.size()-1).getCecha(); // sumowanie pol kol
+            if(figury.get(i).jakaFiguraString().equals("Kolo"))
+                sumaKol += figury.get(figury.size()-1).getCecha(); // sumowanie pol kol
         return sumaKol;
     }
     public int liczbaKwadratow(){ // zwraca liczbe kwadratow...
