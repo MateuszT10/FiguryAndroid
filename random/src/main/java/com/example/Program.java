@@ -75,6 +75,22 @@ public class Program {
         }
         return temp;
     }
+    public int liczbaTrojkatow() { // zwraca liczbe kwadratow...
+        int temp = 0;
+        for (int i = 0; i < figury.size(); i++) {
+            if (figury.get(i).jakaFiguraString() == "Trojkat")
+                temp++;
+        }
+        return temp;
+    }
+    public int liczbaKol(){ // zwraca liczbe kwadratow...
+        int temp = 0;
+        for(int i=0;i<figury.size();i++){
+            if(figury.get(i).jakaFiguraString() == "Kolo")
+                    temp++;
+            }
+        return temp;
+    }
 
 
     private void wyswietlanie() { // wyswietlanie w konsoli
@@ -86,7 +102,10 @@ public class Program {
         System.out.println("Suma kol " + sumaKol());
         System.out.println("Suma kwadratow " + sumaKwadratow());
         System.out.println("Suma trojkatow " + sumaTrojkatow());
-        System.out.println("Ilosc figur " + figury.size());
+        System.out.println("Suma kol " + liczbaKol());
+        System.out.println("Liczba kwadratow " + liczbaKwadratow());
+        System.out.println("Liczba trojkatow " + liczbaTrojkatow());
+        System.out.println("Liczba figur " + figury.size());
     }
 }
 
