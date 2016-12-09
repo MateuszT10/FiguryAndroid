@@ -12,12 +12,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    public Integer N;
+    public Integer N = 15;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista);
         Program program = new Program(); //obiekt klasy program
+        program.setN(N); // przekazujemy ilosc generowanych figur
         String[] ala = {"Ala","ma","kota"};
         program.main(ala); //wywolanie main z modulu java
 
