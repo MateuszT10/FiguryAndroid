@@ -15,7 +15,7 @@ public class Program {
     public List<Figura> figury = new ArrayList<Figura>(); //Array List obiektow klasy Figura
 //.....................................................................//
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { // testowanie
         Program program = new Program(); // nowy obiekt klasy program
         for(int i=0; i<10; i++){
             program.addFigura(); // dodawanie nowej figury
@@ -31,23 +31,23 @@ public class Program {
 
         switch (nowaFigura) {
             case 0:
-                figury.add(new Kwadrat(generator.nextFloat())); // tworzenie kwadratu
+                figury.add(new Kwadrat(MinMax((float)3,(float)5,generator.nextFloat()))); // tworzenie kwadratu
                 break;
             case 1:
-                figury.add(new Trojkat(generator.nextFloat())); //tworzenie trojkata
+                figury.add(new Trojkat(MinMax((float)3,(float)5,generator.nextFloat()))); //tworzenie trojkata
                 break;
             case 2:
-                figury.add(new Kolo(generator.nextFloat())); // tworzenie kola
+                figury.add(new Kolo(MinMax((float)3,(float)5,generator.nextFloat()))); // tworzenie kola
                 break;
             default:
                 break;
         }
     }
+    public Float MinMax(float min, float max, float random){ // zwraca liczbe randomowa z przedzialu min max
+        return (max-min) * random + min;
+    }
     public void deleteFigura(int index){ // kasujemy figure o danym indeksie
         figury.remove(index);
-    }
-    public Float sumaPol(){
-        return sumaKwadratow() + sumaTrojkatow() + sumaKol();
     }
     public Float sumaKwadratow(){ // zwraca sume pol Kwadratow
         float sumaKwadratow = 0;
@@ -67,6 +67,14 @@ public class Program {
              sumaKol += figury.get(figury.size()-1).getPole(); // sumowanie pol kol
         return sumaKol;
     }
+    public int liczbaKwadratow(){ // zwraca liczbe kwadratow...
+        int temp = 0;
+        for(int i=0;i<figury.size();i++){
+            if(figury.get(i).jakaFiguraString() == "Kwadrat")
+                temp++;
+        }
+        return temp;
+    }
 
 
     private void wyswietlanie() { // wyswietlanie w konsoli
@@ -78,7 +86,6 @@ public class Program {
         System.out.println("Suma kol " + sumaKol());
         System.out.println("Suma kwadratow " + sumaKwadratow());
         System.out.println("Suma trojkatow " + sumaTrojkatow());
-        System.out.println("Suma calosci " + sumaPol());
         System.out.println("Ilosc figur " + figury.size());
     }
 }
