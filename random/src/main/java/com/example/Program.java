@@ -12,10 +12,6 @@ import java.util.Random;
 
 public class Program {
 
-    public Float sumaKwadratow = new Float(0); //suma pol kwadratow
-    public Float sumaTrojkatow = new Float(0); // suma pol trojkatow
-    public Float sumaKol = new Float(0); // suma pol kol
-
     public List<Figura> figury = new ArrayList<Figura>(); //Array List obiektow klasy Figura
 //.....................................................................//
 
@@ -36,19 +32,37 @@ public class Program {
         switch (nowaFigura) {
             case 0:
                 figury.add(new Kwadrat(generator.nextFloat())); // tworzenie kwadratu
-                sumaKwadratow += figury.get(figury.size()-1).getPole(); //sumowanie pol kwadratow
                 break;
             case 1:
                 figury.add(new Trojkat(generator.nextFloat())); //tworzenie trojkata
-                sumaTrojkatow += figury.get(figury.size()-1).getPole(); //sumowanie pol trojkatow
                 break;
             case 2:
                 figury.add(new Kolo(generator.nextFloat())); // tworzenie kola
-                sumaKol += figury.get(figury.size()-1).getPole(); // sumowanie pol kol
                 break;
             default:
                 break;
         }
+    }
+    public Float sumaPol(){
+        return sumaKwadratow() + sumaTrojkatow() + sumaKol();
+    }
+    public Float sumaKwadratow(){ // zwraca sume pol Kwadratow
+        float sumaKwadratow = 0;
+        for(int i=0; i< figury.size();i++)
+             sumaKwadratow += figury.get(figury.size()-1).getPole(); //sumowanie pol kwadratow
+        return sumaKwadratow;
+    }
+    public Float sumaTrojkatow(){ // zwraca sume pol Trojkatow
+        float sumaTrojkatow = 0;
+        for(int i=0; i< figury.size();i++)
+             sumaTrojkatow += figury.get(figury.size()-1).getPole(); //sumowanie pol trojkatow
+        return sumaTrojkatow;
+    }
+    public Float sumaKol(){ // zwraca sume pol Kol
+        float sumaKol = 0;
+        for(int i=0; i< figury.size();i++)
+             sumaKol += figury.get(figury.size()-1).getPole(); // sumowanie pol kol
+        return sumaKol;
     }
 
 
@@ -58,9 +72,9 @@ public class Program {
             System.out.println(figury.get(i).getCechaString());
             System.out.println(figury.get(i).getPoleString());
         }
-        System.out.println("Suma kol " + sumaKol);
-        System.out.println("Suma kwadratow " + sumaKwadratow);
-        System.out.println("Suma trojkatow " + sumaTrojkatow);
+        System.out.println("Suma kol " + sumaKol());
+        System.out.println("Suma kwadratow " + sumaKwadratow());
+        System.out.println("Suma trojkatow " + sumaTrojkatow());
         System.out.println("Ilosc figur " + figury.size());
     }
 }
