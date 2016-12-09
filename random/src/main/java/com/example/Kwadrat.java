@@ -22,4 +22,7 @@ package com.example;
         public String sWyswietl(){
             return  String.format("Kwadrat o polu %.3f i przekatnej %.3f",pole,przekatna);
         }
+        public String getCecha(){
+            return String.format("przekatna\n%.3f",this.przekatna);
+        }
   }

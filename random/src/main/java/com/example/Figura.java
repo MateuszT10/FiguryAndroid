@@ -17,6 +17,10 @@ public abstract class Figura {
                 return pole;
         }
 
+        public String getCecha(){
+                return String.format("Sialalal");
+        }
+
         public String sWyswietl() {
                 return "Klasa Figura";
         }

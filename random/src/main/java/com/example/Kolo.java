@@ -21,5 +21,7 @@ public class Kolo extends Figura {
         public String sWyswietl(){
          return  String.format("Kolo        o polu %.3f i srednicy      %.3f",pole,srednica);
         }
-
+        public String getCecha(){
+            return String.format("srednica\n%.3f",this.srednica);
+        }
 }

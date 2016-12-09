@@ -22,4 +22,7 @@ public class Trojkat extends Figura {
         public String sWyswietl(){
             return  String.format("Trojkat   o polu %.3f i wysokosci  %.3f",pole,wysokosc);
         }
+        public String getCecha(){
+            return String.format("wysokosc\n%.3f",this.wysokosc);
+        }
 }
