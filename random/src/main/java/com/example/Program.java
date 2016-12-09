@@ -75,6 +75,7 @@ public class Program {
         System.out.println("Suma kol " + sumaKol());
         System.out.println("Suma kwadratow " + sumaKwadratow());
         System.out.println("Suma trojkatow " + sumaTrojkatow());
+        System.out.println("Suma calosci " + sumaPol());
         System.out.println("Ilosc figur " + figury.size());
     }
 }
