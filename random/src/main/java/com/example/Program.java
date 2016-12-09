@@ -11,7 +11,7 @@ import java.util.Random;
  */
 
 public class Program {
-    Integer NFigur = 10; // liczba figur
+   // Integer NFigur = 10; // liczba figur
     public Float sumaKwadratow = new Float(0); //suma pol kwadratow
     public Float sumaTrojkatow = new Float(0); // suma pol trojkatow
     public Float sumaKol = new Float(0); // suma pol kol
@@ -25,11 +25,11 @@ public class Program {
     public static void main(String[] args) {
         Program program = new Program(); // nowy obiekt klasy program
 
-        program.generatorNFigur(); // generowanie wartosci i figur
-        program.wyswietlanie(); // wyswietlanie figur w
+        program.generatorNFigur(5); // generowanie wartosci i figur
+        program.wyswietlanie(5); // wyswietlanie figur w konsoli
     }
 
-    void  generatorNFigur() {
+    public void  generatorNFigur( Integer NFigur ) {
 
         List<Integer> tablicaFigur = new ArrayList<Integer>();
         Random generator = new Random(); //obiekt klasy Random
@@ -68,15 +68,12 @@ public class Program {
         }
     }
 
-    void wyswietlanie() {
+    private void wyswietlanie(Integer NFigur) { // wyswietlanie w konsoli
         for (int i = 0; i < NFigur; i++) {
             System.out.println(jakaFigura.get(i));
             System.out.println(polaFigur.get(i));
             System.out.println(cechaFigur.get(i));
         }
-    }
-    public  void  setN(Integer liczba){
-        NFigur = liczba;
     }
 }
 
