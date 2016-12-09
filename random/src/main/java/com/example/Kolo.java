@@ -20,4 +20,6 @@ public class Kolo extends Figura {
         }
         public String jakaFiguraString(){return String.format("Kolo");
         }
+         public float getCecha(){return this.srednica;}
+
 }

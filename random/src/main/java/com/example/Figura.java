@@ -22,4 +22,5 @@ public abstract class Figura {
 
         public String jakaFiguraString(){ return  String.format("Figura");
         }
+        public float getCecha(){ return (float)0;}
 }

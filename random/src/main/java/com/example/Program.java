@@ -49,36 +49,55 @@ public class Program {
     public void deleteFigura(int index){ // kasujemy figure o danym indeksie
         figury.remove(index);
     }
-    public Float sumaKwadratow(){ // zwraca sume pol Kwadratow
+    public Float sumaPolKwadratow(){ // zwraca sume pol Kwadratow
         float sumaKwadratow = 0;
         for(int i=0; i< figury.size();i++)
              sumaKwadratow += figury.get(figury.size()-1).getPole(); //sumowanie pol kwadratow
         return sumaKwadratow;
     }
-    public Float sumaTrojkatow(){ // zwraca sume pol Trojkatow
+    public Float sumaPolTrojkatow(){ // zwraca sume pol Trojkatow
         float sumaTrojkatow = 0;
         for(int i=0; i< figury.size();i++)
              sumaTrojkatow += figury.get(figury.size()-1).getPole(); //sumowanie pol trojkatow
         return sumaTrojkatow;
     }
-    public Float sumaKol(){ // zwraca sume pol Kol
+    public Float sumaPolKol(){ // zwraca sume pol Kol
         float sumaKol = 0;
         for(int i=0; i< figury.size();i++)
              sumaKol += figury.get(figury.size()-1).getPole(); // sumowanie pol kol
         return sumaKol;
     }
+    public Float sumaPrzekatnychKwadratow(){ // zwraca sume pol Kwadratow
+        float sumaKwadratow = 0;
+        for(int i=0; i< figury.size();i++)
+            sumaKwadratow += figury.get(figury.size()-1).getCecha(); //sumowanie pol kwadratow
+        return sumaKwadratow;
+    }
+    public Float sumaWysokosciTrojkatow(){ // zwraca sume pol Trojkatow
+        float sumaTrojkatow = 0;
+        for(int i=0; i< figury.size();i++)
+            sumaTrojkatow += figury.get(figury.size()-1).getCecha(); //sumowanie pol trojkatow
+        return sumaTrojkatow;
+    }
+    public Float sumaSrednicyKol(){ // zwraca sume pol Kol
+        float sumaKol = 0;
+        for(int i=0; i< figury.size();i++)
+            sumaKol += figury.get(figury.size()-1).getCecha(); // sumowanie pol kol
+        return sumaKol;
+    }
     public int liczbaKwadratow(){ // zwraca liczbe kwadratow...
         int temp = 0;
         for(int i=0;i<figury.size();i++){
-            if(figury.get(i).jakaFiguraString() == "Kwadrat")
+            if(figury.get(i).jakaFiguraString().equals("Kwadrat")) {
                 temp++;
+            }
         }
         return temp;
     }
     public int liczbaTrojkatow() { // zwraca liczbe kwadratow...
         int temp = 0;
         for (int i = 0; i < figury.size(); i++) {
-            if (figury.get(i).jakaFiguraString() == "Trojkat")
+            if (figury.get(i).jakaFiguraString().equals("Trojkat"))
                 temp++;
         }
         return temp;
@@ -86,7 +105,7 @@ public class Program {
     public int liczbaKol(){ // zwraca liczbe kwadratow...
         int temp = 0;
         for(int i=0;i<figury.size();i++){
-            if(figury.get(i).jakaFiguraString() == "Kolo")
+            if(figury.get(i).jakaFiguraString().equals("Kolo"))
                     temp++;
             }
         return temp;
@@ -99,12 +118,15 @@ public class Program {
             System.out.println(figury.get(i).getCechaString());
             System.out.println(figury.get(i).getPoleString());
         }
-        System.out.println("Suma kol " + sumaKol());
-        System.out.println("Suma kwadratow " + sumaKwadratow());
-        System.out.println("Suma trojkatow " + sumaTrojkatow());
-        System.out.println("Suma kol " + liczbaKol());
+        System.out.println("Suma kol " + sumaPolKol());
+        System.out.println("Suma kwadratow " + sumaPolKwadratow());
+        System.out.println("Suma trojkatow " + sumaPolTrojkatow());
+        System.out.println("Liczba kol " + liczbaKol());
         System.out.println("Liczba kwadratow " + liczbaKwadratow());
         System.out.println("Liczba trojkatow " + liczbaTrojkatow());
+        System.out.println("Suma srednic kol " + sumaSrednicyKol());
+        System.out.println("Suma przekatnych kwadratow " + sumaPrzekatnychKwadratow());
+        System.out.println("Suma wysokosci trojkatow " + sumaWysokosciTrojkatow());
         System.out.println("Liczba figur " + figury.size());
     }
 }

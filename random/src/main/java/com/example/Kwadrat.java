@@ -23,4 +23,7 @@ package com.example;
         public String jakaFiguraString(){
             return String.format("Kwadrat");
         }
-  }
+        public float getCecha(){return this.przekatna;}
+
+
+}

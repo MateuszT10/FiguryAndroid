@@ -23,4 +23,5 @@ public class Trojkat extends Figura {
         public String jakaFiguraString(){
             return String.format("Trojkat");
         }
+        public float getCecha(){return this.wysokosc;}
 }
