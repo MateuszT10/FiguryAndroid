@@ -114,7 +114,15 @@ public class Program {
             }
         return temp;
     }
+    public void sortujPoFigurze(){
 
+    }
+    public void sortujPoPolu(){
+
+    }
+    public void sortujPoCesze(){
+
+    }
 
     private void wyswietlanie() { // wyswietlanie w konsoli
         for(int i = 0; i < figury.size();i++){
