@@ -17,8 +17,8 @@ public class Program {
 
     public static void main(String[] args) { // testowanie
         Program program = new Program(); // nowy obiekt klasy program
-        for(int i=0; i<10; i++){
-            program.addFigura( (float )4.0, (float)7.0); // dodawanie nowej figury
+        for(int i=0; i<5; i++){
+            program.addFigura((float )4.0, (float)7.0); // dodawanie nowej figury
         }
         program.wyswietlanie(); // wyswietlanie figur w konsoli
     }
@@ -132,12 +132,12 @@ public class Program {
         System.out.println("Suma kol " + sumaPolKol());
         System.out.println("Suma kwadratow " + sumaPolKwadratow());
         System.out.println("Suma trojkatow " + sumaPolTrojkatow());
-        System.out.println("Liczba kol " + liczbaKol());
-        System.out.println("Liczba kwadratow " + liczbaKwadratow());
-        System.out.println("Liczba trojkatow " + liczbaTrojkatow());
         System.out.println("Suma srednic kol " + sumaSrednicyKol());
         System.out.println("Suma przekatnych kwadratow " + sumaPrzekatnychKwadratow());
         System.out.println("Suma wysokosci trojkatow " + sumaWysokosciTrojkatow());
+        System.out.println("Liczba kol " + liczbaKol());
+        System.out.println("Liczba kwadratow " + liczbaKwadratow());
+        System.out.println("Liczba trojkatow " + liczbaTrojkatow());
         System.out.println("Liczba figur " + figury.size());
     }
 }
