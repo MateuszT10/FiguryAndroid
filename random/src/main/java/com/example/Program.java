@@ -22,14 +22,7 @@ public class Program {
         }
         program.wyswietlanie(); // wyswietlanie figur w konsoli
     }
-    private float generujCeche(){// metoda generujaca
-        Random generator = new Random(); //obiekt klasy Random
-        return generator.nextFloat();
-    }
-    private Integer generujFigure(){// metoda generujaca
-        Random generator = new Random(); //obiekt klasy Random
-        return generator.nextInt(3);
-    }
+
     public void addFigura(float min,float max) {
             Integer nowaFigura = generujFigure();
             //0 to kwadrat, 1 to trojkat, 2 to kolo
@@ -58,42 +51,42 @@ public class Program {
         float sumaKwadratow = 0;
         for(int i=0; i< figury.size();i++)
             if(figury.get(i).jakaFiguraString().equals("Kwadrat"))
-             sumaKwadratow += figury.get(figury.size()-1).getPole(); //sumowanie pol kwadratow
+             sumaKwadratow += figury.get(i).getPole(); //sumowanie pol kwadratow
         return sumaKwadratow;
     }
     public Float sumaPolTrojkatow(){ // zwraca sume pol Trojkatow
         float sumaTrojkatow = 0;
             for(int i=0; i< figury.size();i++)
                 if(figury.get(i).jakaFiguraString().equals("Trojkat"))
-                    sumaTrojkatow += figury.get(figury.size()-1).getPole(); //sumowanie pol trojkatow
+                    sumaTrojkatow += figury.get(i).getPole(); //sumowanie pol trojkatow
         return sumaTrojkatow;
     }
     public Float sumaPolKol(){ // zwraca sume pol Kol
         float sumaKol = 0;
         for(int i=0; i< figury.size();i++)
             if(figury.get(i).jakaFiguraString().equals("Kolo"))
-                sumaKol += figury.get(figury.size()-1).getPole(); // sumowanie pol kol
+                sumaKol += figury.get(i).getPole(); // sumowanie pol kol
         return sumaKol;
     }
     public Float sumaPrzekatnychKwadratow(){ // zwraca sume pol Kwadratow
         float sumaKwadratow = 0;
         for(int i=0; i< figury.size();i++)
             if(figury.get(i).jakaFiguraString().equals("Kwadrat"))
-                sumaKwadratow += figury.get(figury.size()-1).getCecha(); //sumowanie pol kwadratow
+                sumaKwadratow += figury.get(i).getCecha(); //sumowanie pol kwadratow
         return sumaKwadratow;
     }
     public Float sumaWysokosciTrojkatow(){ // zwraca sume pol Trojkatow
         float sumaTrojkatow = 0;
         for(int i=0; i< figury.size();i++)
             if(figury.get(i).jakaFiguraString().equals("Trojkat"))
-                sumaTrojkatow += figury.get(figury.size()-1).getCecha(); //sumowanie pol trojkatow
+                sumaTrojkatow += figury.get(i).getCecha(); //sumowanie pol trojkatow
         return sumaTrojkatow;
     }
     public Float sumaSrednicyKol(){ // zwraca sume pol Kol
         float sumaKol = 0;
         for(int i=0; i< figury.size();i++)
             if(figury.get(i).jakaFiguraString().equals("Kolo"))
-                sumaKol += figury.get(figury.size()-1).getCecha(); // sumowanie pol kol
+                sumaKol += figury.get(i).getCecha(); // sumowanie pol kol
         return sumaKol;
     }
     public int liczbaKwadratow(){ // zwraca liczbe kwadratow...
@@ -139,6 +132,14 @@ public class Program {
         System.out.println("Liczba kwadratow " + liczbaKwadratow());
         System.out.println("Liczba trojkatow " + liczbaTrojkatow());
         System.out.println("Liczba figur " + figury.size());
+    }
+    private float generujCeche(){// metoda generujaca
+        Random generator = new Random(); //obiekt klasy Random
+        return generator.nextFloat();
+    }
+    private Integer generujFigure(){// metoda generujaca
+        Random generator = new Random(); //obiekt klasy Random
+        return generator.nextInt(3);
     }
 }
 
