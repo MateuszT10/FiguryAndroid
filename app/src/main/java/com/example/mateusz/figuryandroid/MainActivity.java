@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista);
         Program program = new Program(); //obiekt klasy program
-        program.addFigura(); // dodanie figury
+       // program.addFigura(); // dodanie figury
 
 
 //        String[] stringi= new String[45]; // lista wszystkich figur wraz z cechami i polami
