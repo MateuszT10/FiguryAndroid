@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
+import static java.lang.Math.abs;
 import static java.util.Comparator.*;
 //import com.example
 
@@ -21,7 +22,7 @@ public class Program {
     public static void main(String[] args) { // testowanie
         Program program = new Program(); // nowy obiekt klasy program
         for(int i=0; i<5; i++){
-            program.addFigura((float )4.0, (float)7.0); // dodawanie nowej figury
+            program.addFigura((float )10.0, (float)7.0); // dodawanie nowej figury
         }
         program.wyswietlanie(); // wyswietlanie figur w konsoli
     }
@@ -45,7 +46,7 @@ public class Program {
         }
     }
     private Float minMax(float min, float max, float random){ // zwraca liczbe randomowa z przedzialu min max
-        return (max-min) * random + min;
+        return abs(max-min) * random + min;
     }
     public void deleteFigura(int index){ // kasujemy figure o danym indeksie
         figury.remove(index);
