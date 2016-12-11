@@ -20,7 +20,7 @@ public abstract class Figura {
                 return String.format("Sialalal");
         }
 
-        public String jakaFiguraString(){ return  String.format("Figura");
+        public String getFiguraString(){ return  String.format("Figura");
         }
         public float getCecha(){ return (float)0;}
 }

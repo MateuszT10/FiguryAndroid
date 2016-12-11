@@ -18,7 +18,7 @@ public class Kolo extends Figura {
         public String getCechaString(){
             return String.format("srednica\n%.3f",this.srednica);
         }
-        public String jakaFiguraString(){return String.format("Kolo");
+        public String getFiguraString(){return String.format("Kolo");
         }
          public float getCecha(){return this.srednica;}
 

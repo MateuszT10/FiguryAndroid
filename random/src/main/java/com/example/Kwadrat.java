@@ -20,7 +20,7 @@ package com.example;
         public String getCechaString(){
             return String.format("przekatna\n%.3f",this.przekatna);
         }
-        public String jakaFiguraString(){
+        public String getFiguraString(){
             return String.format("Kwadrat");
         }
         public float getCecha(){return this.przekatna;}

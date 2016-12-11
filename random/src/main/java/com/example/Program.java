@@ -57,49 +57,49 @@ public class Program {
     public Float sumaPolKwadratow(){ // zwraca sume pol Kwadratow
         float sumaKwadratow = 0;
         for(int i=0; i< figury.size();i++)
-            if(figury.get(i).jakaFiguraString().equals("Kwadrat"))
+            if(figury.get(i).getFiguraString().equals("Kwadrat"))
              sumaKwadratow += figury.get(i).getPole(); //sumowanie pol kwadratow
         return sumaKwadratow;
     }
     public Float sumaPolTrojkatow(){ // zwraca sume pol Trojkatow
         float sumaTrojkatow = 0;
             for(int i=0; i< figury.size();i++)
-                if(figury.get(i).jakaFiguraString().equals("Trojkat"))
+                if(figury.get(i).getFiguraString().equals("Trojkat"))
                     sumaTrojkatow += figury.get(i).getPole(); //sumowanie pol trojkatow
         return sumaTrojkatow;
     }
     public Float sumaPolKol(){ // zwraca sume pol Kol
         float sumaKol = 0;
         for(int i=0; i< figury.size();i++)
-            if(figury.get(i).jakaFiguraString().equals("Kolo"))
+            if(figury.get(i).getFiguraString().equals("Kolo"))
                 sumaKol += figury.get(i).getPole(); // sumowanie pol kol
         return sumaKol;
     }
     public Float sumaPrzekatnychKwadratow(){ // zwraca sume pol Kwadratow
         float sumaKwadratow = 0;
         for(int i=0; i< figury.size();i++)
-            if(figury.get(i).jakaFiguraString().equals("Kwadrat"))
+            if(figury.get(i).getFiguraString().equals("Kwadrat"))
                 sumaKwadratow += figury.get(i).getCecha(); //sumowanie pol kwadratow
         return sumaKwadratow;
     }
     public Float sumaWysokosciTrojkatow(){ // zwraca sume pol Trojkatow
         float sumaTrojkatow = 0;
         for(int i=0; i< figury.size();i++)
-            if(figury.get(i).jakaFiguraString().equals("Trojkat"))
+            if(figury.get(i).getFiguraString().equals("Trojkat"))
                 sumaTrojkatow += figury.get(i).getCecha(); //sumowanie pol trojkatow
         return sumaTrojkatow;
     }
     public Float sumaSrednicyKol(){ // zwraca sume pol Kol
         float sumaKol = 0;
         for(int i=0; i< figury.size();i++)
-            if(figury.get(i).jakaFiguraString().equals("Kolo"))
+            if(figury.get(i).getFiguraString().equals("Kolo"))
                 sumaKol += figury.get(i).getCecha(); // sumowanie pol kol
         return sumaKol;
     }
     public int liczbaKwadratow(){ // zwraca liczbe kwadratow...
         int temp = 0;
         for(int i=0;i<figury.size();i++){
-            if(figury.get(i).jakaFiguraString().equals("Kwadrat")) {
+            if(figury.get(i).getFiguraString().equals("Kwadrat")) {
                 temp++;
             }
         }
@@ -108,7 +108,7 @@ public class Program {
     public int liczbaTrojkatow() { // zwraca liczbe kwadratow...
         int temp = 0;
         for (int i = 0; i < figury.size(); i++) {
-            if (figury.get(i).jakaFiguraString().equals("Trojkat"))
+            if (figury.get(i).getFiguraString().equals("Trojkat"))
                 temp++;
         }
         return temp;
@@ -116,7 +116,7 @@ public class Program {
     public int liczbaKol(){ // zwraca liczbe kwadratow...
         int temp = 0;
         for(int i=0;i<figury.size();i++){
-            if(figury.get(i).jakaFiguraString().equals("Kolo"))
+            if(figury.get(i).getFiguraString().equals("Kolo"))
                     temp++;
             }
         return temp;
@@ -164,8 +164,8 @@ public class Program {
     private static Comparator<Figura> KomparatorNazw = new Comparator<Figura>() {
 
         public int compare(Figura s1, Figura s2) {
-            String FiguraName1 = s1.jakaFiguraString().toUpperCase();
-            String FiguraName2 = s2.jakaFiguraString().toUpperCase();
+            String FiguraName1 = s1.getFiguraString().toUpperCase();
+            String FiguraName2 = s2.getFiguraString().toUpperCase();
 
             //ascending order
             return FiguraName1.compareTo(FiguraName2);
@@ -202,7 +202,7 @@ public class Program {
     };
     private void wyswietlanieTablicy(){
         for(int i = 0; i < figury.size();i++){
-            System.out.println(figury.get(i).jakaFiguraString());
+            System.out.println(figury.get(i).getFiguraString());
             System.out.println(figury.get(i).getCechaString());
             System.out.println(figury.get(i).getPoleString());
         }
