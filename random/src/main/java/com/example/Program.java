@@ -175,11 +175,11 @@ public class Program {
     public static Comparator<Figura> CechaFiguryComparator = new Comparator<Figura>() {
 
         public int compare(Figura s1, Figura s2) {
-            String FiguraName1 = s1.jakaFiguraString().toUpperCase();
-            String FiguraName2 = s2.jakaFiguraString().toUpperCase();
+            Float FiguraCecha1 = s1.getCecha();
+            Float FiguraCecha2 = s2.getCecha();
 
             //ascending order
-            return FiguraName1.compareTo(FiguraName2);
+            return FiguraCecha1.compareTo(FiguraCecha2);
 
             //descending order
             //return StudentName2.compareTo(StudentName1);
@@ -188,8 +188,8 @@ public class Program {
     public static Comparator<Figura> PoleFiguryComparator = new Comparator<Figura>() {
 
         public int compare(Figura s1, Figura s2) {
-            float FiguraPole1 = s1.getPole();
-            float FiguraPole2 = s2.getPole();
+            Float FiguraPole1 = s1.getPole();
+            Float FiguraPole2 = s2.getPole();
 
             //ascending order
             return FiguraPole1.compareTo(FiguraPole2);
