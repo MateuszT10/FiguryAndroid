@@ -16,13 +16,13 @@ import static java.util.Comparator.*;
 
 public class Program {
 
-    public List<Figura> figury = new ArrayList<Figura>(); //Array List obiektow klasy Figura
+    public List<Figura> tablicaFigur = new ArrayList<Figura>(); //Array List obiektow klasy Figura
 //.....................................................................//
 
     public static void main(String[] args) { // testowanie
         Program program = new Program(); // nowy obiekt klasy program
         for(int i=0; i<5; i++){
-            program.addFigura((float )10.0, (float)7.0); // dodawanie nowej figury
+            program.addFigura((float )10.0, (float)7.0); // dodawanie nowej tablicaFigur
         }
         program.wyswietlanie(); // wyswietlanie figur w konsoli
     }
@@ -33,13 +33,13 @@ public class Program {
 
         switch (nowaFigura) {
             case 0:
-                figury.add(new Kwadrat(minMax(min,max,generujCeche()))); // tworzenie kwadratu
+                tablicaFigur.add(new Kwadrat(minMax(min,max,generujCeche()))); // tworzenie kwadratu
                 break;
             case 1:
-                figury.add(new Trojkat(minMax(min,max,generujCeche()))); //tworzenie trojkata
+                tablicaFigur.add(new Trojkat(minMax(min,max,generujCeche()))); //tworzenie trojkata
                 break;
             case 2:
-                figury.add(new Kolo(minMax(min,max,generujCeche()))); // tworzenie kola
+                tablicaFigur.add(new Kolo(minMax(min,max,generujCeche()))); // tworzenie kola
                 break;
             default:
                 break;
@@ -49,57 +49,57 @@ public class Program {
         return abs(max-min) * random + min;
     }
     public void deleteFigura(int index){ // kasujemy figure o danym indeksie
-        figury.remove(index);
+        tablicaFigur.remove(index);
     }
     public void usunWszystko(){
-        figury.clear();
+        tablicaFigur.clear();
     }
     public Float sumaPolKwadratow(){ // zwraca sume pol Kwadratow
         float sumaKwadratow = 0;
-        for(int i=0; i< figury.size();i++)
-            if(figury.get(i).getFiguraString().equals("Kwadrat"))
-             sumaKwadratow += figury.get(i).getPole(); //sumowanie pol kwadratow
+        for(int i=0; i< tablicaFigur.size();i++)
+            if(tablicaFigur.get(i).getFiguraString().equals("Kwadrat"))
+             sumaKwadratow += tablicaFigur.get(i).getPole(); //sumowanie pol kwadratow
         return sumaKwadratow;
     }
     public Float sumaPolTrojkatow(){ // zwraca sume pol Trojkatow
         float sumaTrojkatow = 0;
-            for(int i=0; i< figury.size();i++)
-                if(figury.get(i).getFiguraString().equals("Trojkat"))
-                    sumaTrojkatow += figury.get(i).getPole(); //sumowanie pol trojkatow
+            for(int i=0; i< tablicaFigur.size();i++)
+                if(tablicaFigur.get(i).getFiguraString().equals("Trojkat"))
+                    sumaTrojkatow += tablicaFigur.get(i).getPole(); //sumowanie pol trojkatow
         return sumaTrojkatow;
     }
     public Float sumaPolKol(){ // zwraca sume pol Kol
         float sumaKol = 0;
-        for(int i=0; i< figury.size();i++)
-            if(figury.get(i).getFiguraString().equals("Kolo"))
-                sumaKol += figury.get(i).getPole(); // sumowanie pol kol
+        for(int i=0; i< tablicaFigur.size();i++)
+            if(tablicaFigur.get(i).getFiguraString().equals("Kolo"))
+                sumaKol += tablicaFigur.get(i).getPole(); // sumowanie pol kol
         return sumaKol;
     }
     public Float sumaPrzekatnychKwadratow(){ // zwraca sume pol Kwadratow
         float sumaKwadratow = 0;
-        for(int i=0; i< figury.size();i++)
-            if(figury.get(i).getFiguraString().equals("Kwadrat"))
-                sumaKwadratow += figury.get(i).getCecha(); //sumowanie pol kwadratow
+        for(int i=0; i< tablicaFigur.size();i++)
+            if(tablicaFigur.get(i).getFiguraString().equals("Kwadrat"))
+                sumaKwadratow += tablicaFigur.get(i).getCecha(); //sumowanie pol kwadratow
         return sumaKwadratow;
     }
     public Float sumaWysokosciTrojkatow(){ // zwraca sume pol Trojkatow
         float sumaTrojkatow = 0;
-        for(int i=0; i< figury.size();i++)
-            if(figury.get(i).getFiguraString().equals("Trojkat"))
-                sumaTrojkatow += figury.get(i).getCecha(); //sumowanie pol trojkatow
+        for(int i=0; i< tablicaFigur.size();i++)
+            if(tablicaFigur.get(i).getFiguraString().equals("Trojkat"))
+                sumaTrojkatow += tablicaFigur.get(i).getCecha(); //sumowanie pol trojkatow
         return sumaTrojkatow;
     }
     public Float sumaSrednicyKol(){ // zwraca sume pol Kol
         float sumaKol = 0;
-        for(int i=0; i< figury.size();i++)
-            if(figury.get(i).getFiguraString().equals("Kolo"))
-                sumaKol += figury.get(i).getCecha(); // sumowanie pol kol
+        for(int i=0; i< tablicaFigur.size();i++)
+            if(tablicaFigur.get(i).getFiguraString().equals("Kolo"))
+                sumaKol += tablicaFigur.get(i).getCecha(); // sumowanie pol kol
         return sumaKol;
     }
     public int liczbaKwadratow(){ // zwraca liczbe kwadratow...
         int temp = 0;
-        for(int i=0;i<figury.size();i++){
-            if(figury.get(i).getFiguraString().equals("Kwadrat")) {
+        for(int i=0;i<tablicaFigur.size();i++){
+            if(tablicaFigur.get(i).getFiguraString().equals("Kwadrat")) {
                 temp++;
             }
         }
@@ -107,28 +107,28 @@ public class Program {
     }
     public int liczbaTrojkatow() { // zwraca liczbe kwadratow...
         int temp = 0;
-        for (int i = 0; i < figury.size(); i++) {
-            if (figury.get(i).getFiguraString().equals("Trojkat"))
+        for (int i = 0; i < tablicaFigur.size(); i++) {
+            if (tablicaFigur.get(i).getFiguraString().equals("Trojkat"))
                 temp++;
         }
         return temp;
     }
     public int liczbaKol(){ // zwraca liczbe kwadratow...
         int temp = 0;
-        for(int i=0;i<figury.size();i++){
-            if(figury.get(i).getFiguraString().equals("Kolo"))
+        for(int i=0;i<tablicaFigur.size();i++){
+            if(tablicaFigur.get(i).getFiguraString().equals("Kolo"))
                     temp++;
             }
         return temp;
     }
     public void sortujpoNazwie(){
-        Collections.sort(figury, Program.KomparatorNazw);
+        Collections.sort(tablicaFigur, Program.KomparatorNazw);
     }
     public void sortujPoPolu(){
-        Collections.sort(figury, Program.KomparatorPol);
+        Collections.sort(tablicaFigur, Program.KomparatorPol);
     }
     public void sortujPoCesze(){
-        Collections.sort(figury, Program.KomparatorCech);
+        Collections.sort(tablicaFigur, Program.KomparatorCech);
     }
 
     private void wyswietlanie() { // wyswietlanie w konsoli
@@ -142,7 +142,7 @@ public class Program {
         System.out.println("Liczba kol " + liczbaKol());
         System.out.println("Liczba kwadratow " + liczbaKwadratow());
         System.out.println("Liczba trojkatow " + liczbaTrojkatow());
-        System.out.println("Liczba figur " + figury.size());
+        System.out.println("Liczba figur " + tablicaFigur.size());
         System.out.println("Sortowanie po nazwie");
         sortujpoNazwie();
         wyswietlanieTablicy();
@@ -201,10 +201,10 @@ public class Program {
         }
     };
     private void wyswietlanieTablicy(){
-        for(int i = 0; i < figury.size();i++){
-            System.out.println(figury.get(i).getFiguraString());
-            System.out.println(figury.get(i).getCechaString());
-            System.out.println(figury.get(i).getPoleString());
+        for(int i = 0; i < tablicaFigur.size();i++){
+            System.out.println(tablicaFigur.get(i).getFiguraString());
+            System.out.println(tablicaFigur.get(i).getCechaString());
+            System.out.println(tablicaFigur.get(i).getPoleString());
         }
     }
 }
