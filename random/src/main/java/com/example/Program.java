@@ -51,6 +51,9 @@ public class Program {
     public void deleteFigura(int index){ // kasujemy figure o danym indeksie
         figury.remove(index);
     }
+    public void usunWszystko(){
+        figury.clear();
+    }
     public Float sumaPolKwadratow(){ // zwraca sume pol Kwadratow
         float sumaKwadratow = 0;
         for(int i=0; i< figury.size();i++)
