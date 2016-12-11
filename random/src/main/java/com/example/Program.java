@@ -1,8 +1,14 @@
 package com.example;
 
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
+
+import static java.util.Comparator.*;
 //import com.example
 
 
@@ -115,7 +121,11 @@ public class Program {
         return temp;
     }
     public void sortujPoFigurze(){
-
+        //Comparator<String> cmp = Comparator.comparing(figury ::;
+        List<String> listaFigur = new ArrayList<String>();
+        for(int i=0;i<figury.size();i++){
+            listaFigur.add(figury.get(i).jakaFiguraString());
+        }
     }
     public void sortujPoPolu(){
 
@@ -149,6 +159,45 @@ public class Program {
         Random generator = new Random(); //obiekt klasy Random
         return generator.nextInt(3);
     }
+    public static Comparator<Figura> FiguraNameComparator = new Comparator<Figura>() {
+
+        public int compare(Figura s1, Figura s2) {
+            String FiguraName1 = s1.jakaFiguraString().toUpperCase();
+            String FiguraName2 = s2.jakaFiguraString().toUpperCase();
+
+            //ascending order
+            return FiguraName1.compareTo(FiguraName2);
+
+            //descending order
+            //return StudentName2.compareTo(StudentName1);
+        }
+    };
+    public static Comparator<Figura> CechaFiguryComparator = new Comparator<Figura>() {
+
+        public int compare(Figura s1, Figura s2) {
+            String FiguraName1 = s1.jakaFiguraString().toUpperCase();
+            String FiguraName2 = s2.jakaFiguraString().toUpperCase();
+
+            //ascending order
+            return FiguraName1.compareTo(FiguraName2);
+
+            //descending order
+            //return StudentName2.compareTo(StudentName1);
+        }
+    };
+    public static Comparator<Figura> PoleFiguryComparator = new Comparator<Figura>() {
+
+        public int compare(Figura s1, Figura s2) {
+            float FiguraPole1 = s1.getPole();
+            float FiguraPole2 = s2.getPole();
+
+            //ascending order
+            return FiguraPole1.compareTo(FiguraPole2);
+
+            //descending order
+            //return StudentName2.compareTo(StudentName1);
+        }
+    };
 }
 
 
