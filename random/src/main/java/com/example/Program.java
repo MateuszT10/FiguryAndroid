@@ -1,7 +1,4 @@
 package com.example;
-
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -29,7 +26,7 @@ public class Program {
         program.wyswietlanie(); // wyswietlanie figur w konsoli
     }
 
-    public void addFigura(float min,float max) {
+    public void addFigura(float min,float max) { // dodajemy figure o cesze z zakresu min,max
             Integer nowaFigura = generujFigure();
             //0 to kwadrat, 1 to trojkat, 2 to kolo
 
@@ -47,7 +44,7 @@ public class Program {
                 break;
         }
     }
-    public Float minMax(float min, float max, float random){ // zwraca liczbe randomowa z przedzialu min max
+    private Float minMax(float min, float max, float random){ // zwraca liczbe randomowa z przedzialu min max
         return (max-min) * random + min;
     }
     public void deleteFigura(int index){ // kasujemy figure o danym indeksie
@@ -120,26 +117,18 @@ public class Program {
             }
         return temp;
     }
-    public void sortujPoFigurze(){
-        //Comparator<String> cmp = Comparator.comparing(figury ::;
-        List<String> listaFigur = new ArrayList<String>();
-        for(int i=0;i<figury.size();i++){
-            listaFigur.add(figury.get(i).jakaFiguraString());
-        }
+    public void sortujpoNazwie(){
+        Collections.sort(figury, Program.KomparatorNazw);
     }
     public void sortujPoPolu(){
-
+        Collections.sort(figury, Program.KomparatorPol);
     }
     public void sortujPoCesze(){
-
+        Collections.sort(figury, Program.KomparatorCech);
     }
 
     private void wyswietlanie() { // wyswietlanie w konsoli
-        for(int i = 0; i < figury.size();i++){
-            System.out.println(figury.get(i).jakaFiguraString());
-            System.out.println(figury.get(i).getCechaString());
-            System.out.println(figury.get(i).getPoleString());
-        }
+        wyswietlanieTablicy();
         System.out.println("Suma kol " + sumaPolKol());
         System.out.println("Suma kwadratow " + sumaPolKwadratow());
         System.out.println("Suma trojkatow " + sumaPolTrojkatow());
@@ -150,6 +139,15 @@ public class Program {
         System.out.println("Liczba kwadratow " + liczbaKwadratow());
         System.out.println("Liczba trojkatow " + liczbaTrojkatow());
         System.out.println("Liczba figur " + figury.size());
+        System.out.println("Sortowanie po nazwie");
+        sortujpoNazwie();
+        wyswietlanieTablicy();
+        System.out.println("Sortowanie po cesze");
+        sortujPoCesze();
+        wyswietlanieTablicy();
+        System.out.println("Sortowanie po nazwie");
+        sortujPoPolu();
+        wyswietlanieTablicy();
     }
     private float generujCeche(){// metoda generujaca
         Random generator = new Random(); //obiekt klasy Random
@@ -159,7 +157,7 @@ public class Program {
         Random generator = new Random(); //obiekt klasy Random
         return generator.nextInt(3);
     }
-    public static Comparator<Figura> FiguraNameComparator = new Comparator<Figura>() {
+    private static Comparator<Figura> KomparatorNazw = new Comparator<Figura>() {
 
         public int compare(Figura s1, Figura s2) {
             String FiguraName1 = s1.jakaFiguraString().toUpperCase();
@@ -172,7 +170,7 @@ public class Program {
             //return StudentName2.compareTo(StudentName1);
         }
     };
-    public static Comparator<Figura> CechaFiguryComparator = new Comparator<Figura>() {
+    private static Comparator<Figura> KomparatorCech = new Comparator<Figura>() {
 
         public int compare(Figura s1, Figura s2) {
             Float FiguraCecha1 = s1.getCecha();
@@ -185,7 +183,7 @@ public class Program {
             //return StudentName2.compareTo(StudentName1);
         }
     };
-    public static Comparator<Figura> PoleFiguryComparator = new Comparator<Figura>() {
+    private static Comparator<Figura> KomparatorPol = new Comparator<Figura>() {
 
         public int compare(Figura s1, Figura s2) {
             Float FiguraPole1 = s1.getPole();
@@ -198,6 +196,13 @@ public class Program {
             //return StudentName2.compareTo(StudentName1);
         }
     };
+    private void wyswietlanieTablicy(){
+        for(int i = 0; i < figury.size();i++){
+            System.out.println(figury.get(i).jakaFiguraString());
+            System.out.println(figury.get(i).getCechaString());
+            System.out.println(figury.get(i).getPoleString());
+        }
+    }
 }
 
 
