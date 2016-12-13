@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
-
 import static java.lang.Math.abs;
 import static java.util.Comparator.*;
 //import com.example
@@ -17,6 +16,7 @@ import static java.util.Comparator.*;
 public class Program {
 
     public List<Figura> tablicaFigur = new ArrayList<Figura>(); //Array List obiektow klasy Figura
+    public List<String> tablicaStringow = new ArrayList<>();
 //.....................................................................//
 
     public static void main(String[] args) { // testowanie
@@ -133,25 +133,27 @@ public class Program {
 
     private void wyswietlanie() { // wyswietlanie w konsoli
         wyswietlanieTablicy();
-        System.out.println("Suma kol " + sumaPolKol());
-        System.out.println("Suma kwadratow " + sumaPolKwadratow());
-        System.out.println("Suma trojkatow " + sumaPolTrojkatow());
-        System.out.println("Suma srednic kol " + sumaSrednicyKol());
-        System.out.println("Suma przekatnych kwadratow " + sumaPrzekatnychKwadratow());
-        System.out.println("Suma wysokosci trojkatow " + sumaWysokosciTrojkatow());
-        System.out.println("Liczba kol " + liczbaKol());
-        System.out.println("Liczba kwadratow " + liczbaKwadratow());
-        System.out.println("Liczba trojkatow " + liczbaTrojkatow());
-        System.out.println("Liczba figur " + tablicaFigur.size());
-        System.out.println("Sortowanie po nazwie");
-        sortujpoNazwie();
-        wyswietlanieTablicy();
-        System.out.println("Sortowanie po cesze");
-        sortujPoCesze();
-        wyswietlanieTablicy();
-        System.out.println("Sortowanie po nazwie");
-        sortujPoPolu();
-        wyswietlanieTablicy();
+//        System.out.println("Suma kol " + sumaPolKol());
+//        System.out.println("Suma kwadratow " + sumaPolKwadratow());
+//        System.out.println("Suma trojkatow " + sumaPolTrojkatow());
+//        System.out.println("Suma srednic kol " + sumaSrednicyKol());
+//        System.out.println("Suma przekatnych kwadratow " + sumaPrzekatnychKwadratow());
+//        System.out.println("Suma wysokosci trojkatow " + sumaWysokosciTrojkatow());
+//        System.out.println("Liczba kol " + liczbaKol());
+//        System.out.println("Liczba kwadratow " + liczbaKwadratow());
+//        System.out.println("Liczba trojkatow " + liczbaTrojkatow());
+//        System.out.println("Liczba figur " + tablicaFigur.size());
+//        System.out.println("Sortowanie po nazwie");
+//        sortujpoNazwie();
+//        wyswietlanieTablicy();
+//        System.out.println("Sortowanie po cesze");
+//        sortujPoCesze();
+//        wyswietlanieTablicy();
+//        System.out.println("Sortowanie po nazwie");
+//        sortujPoPolu();
+//        wyswietlanieTablicy();
+
+
     }
     private float generujCeche(){// metoda generujaca
         Random generator = new Random(); //obiekt klasy Random
@@ -201,11 +203,15 @@ public class Program {
         }
     };
     private void wyswietlanieTablicy(){
-        for(int i = 0; i < tablicaFigur.size();i++){
-            System.out.println(tablicaFigur.get(i).getFiguraString());
-            System.out.println(tablicaFigur.get(i).getCechaString());
-            System.out.println(tablicaFigur.get(i).getPoleString());
+        for(int i = 0; i < tablicaStringow.size();i++){
+//            System.out.println(tablicaFigur.get(i).getFiguraString());
+//            System.out.println(tablicaFigur.get(i).getCechaString());
+//            System.out.println(tablicaFigur.get(i).getPoleString());
+            tablicaStringow.get(i);
         }
+    }
+    public void setTablica(List<String> temp){
+        tablicaStringow = temp;
     }
 }
 

@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista);
         Program program = new Program(); //obiekt klasy program
-        utworzNFigur(5, program); // tworzenie figur
+        utworzNFigur(7, program); // tworzenie figur
         tablicaStringow(program.tablicaFigur); // tablica stringow do wyswietlania w gridzie
         GridView gridview = (GridView) findViewById(R.id.gridview);
 
