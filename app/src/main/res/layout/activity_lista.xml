@@ -71,7 +71,7 @@
             android:orientation="vertical" >
 
             <GridView
-                android:id="@+id/grid"
+                android:id="@+id/gridview"
                 android:layout_width="match_parent"
                 android:layout_height="405dp"
                 android:columnWidth="90dp"
