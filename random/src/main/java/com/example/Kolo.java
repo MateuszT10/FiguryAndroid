@@ -12,7 +12,7 @@ public class Kolo extends Figura {
             this.srednica = srednica;
             obliczPole(srednica);
         }
-        void obliczPole(float srednica){
+        private void obliczPole(float srednica){
             pole = (float)Math.PI * (srednica * srednica) / 4;
         }
         public String getCechaString(){

@@ -22,7 +22,7 @@ public class Program {
     public static void main(String[] args) { // testowanie
         Program program = new Program(); // nowy obiekt klasy program
         for(int i=0; i<5; i++){
-            program.addFigura((float )10.0, (float)7.0); // dodawanie nowej tablicaFigur
+            program.addFigura((float )7.0, (float)10.0); // dodawanie nowej tablicaFigur
         }
         program.wyswietlanie(); // wyswietlanie figur w konsoli
     }
