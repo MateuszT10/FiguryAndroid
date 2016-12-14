@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/file"
-        android:title="file" >
+    <item android:id="@+id/statystyki"
+        android:title="Statystyki" >
+    </item>
+    <item android:id="@+id/ustawienia"
+        android:title="Ustawienia" >
         <!-- "file" submenu -->
         <menu>
-            <item android:id="create_new"
-                android:title="create_new" />
-            <item android:id="@+id/open"
-                android:title="open" />
+            <item android:id="@+id/zmien_liczbe_generowanych_figur"
+                android:title="Zmien liczbe generowanych figur" />
+            <item android:id="@+id/sortuj_po_nazwie"
+                android:title="Sortuj elementy po nazwie" />
+            <item android:id="@+id/sortuj_elementy_po_cesze"
+                android:title="Sortuj elementy po cesze" />
+            <item android:id="@+id/sortuj_elementy_po_polu"
+                android:title="Sortuj elementy po polu" />
         </menu>
     </item>
 </menu>
