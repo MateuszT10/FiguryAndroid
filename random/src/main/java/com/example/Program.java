@@ -133,25 +133,25 @@ public class Program {
 
     private void wyswietlanie() { // wyswietlanie w konsoli
         wyswietlanieTablicy();
-//        System.out.println("Suma kol " + sumaPolKol());
-//        System.out.println("Suma kwadratow " + sumaPolKwadratow());
-//        System.out.println("Suma trojkatow " + sumaPolTrojkatow());
-//        System.out.println("Suma srednic kol " + sumaSrednicyKol());
-//        System.out.println("Suma przekatnych kwadratow " + sumaPrzekatnychKwadratow());
-//        System.out.println("Suma wysokosci trojkatow " + sumaWysokosciTrojkatow());
-//        System.out.println("Liczba kol " + liczbaKol());
-//        System.out.println("Liczba kwadratow " + liczbaKwadratow());
-//        System.out.println("Liczba trojkatow " + liczbaTrojkatow());
-//        System.out.println("Liczba figur " + tablicaFigur.size());
-//        System.out.println("Sortowanie po nazwie");
-//        sortujpoNazwie();
-//        wyswietlanieTablicy();
-//        System.out.println("Sortowanie po cesze");
-//        sortujPoCesze();
-//        wyswietlanieTablicy();
-//        System.out.println("Sortowanie po nazwie");
-//        sortujPoPolu();
-//        wyswietlanieTablicy();
+        System.out.println("Suma kol " + sumaPolKol());
+        System.out.println("Suma kwadratow " + sumaPolKwadratow());
+        System.out.println("Suma trojkatow " + sumaPolTrojkatow());
+        System.out.println("Suma srednic kol " + sumaSrednicyKol());
+        System.out.println("Suma przekatnych kwadratow " + sumaPrzekatnychKwadratow());
+        System.out.println("Suma wysokosci trojkatow " + sumaWysokosciTrojkatow());
+        System.out.println("Liczba kol " + liczbaKol());
+        System.out.println("Liczba kwadratow " + liczbaKwadratow());
+        System.out.println("Liczba trojkatow " + liczbaTrojkatow());
+        System.out.println("Liczba figur " + tablicaFigur.size());
+        System.out.println("Sortowanie po nazwie");
+        sortujpoNazwie();
+        wyswietlanieTablicy();
+        System.out.println("Sortowanie po cesze");
+        sortujPoCesze();
+        wyswietlanieTablicy();
+        System.out.println("Sortowanie po nazwie");
+        sortujPoPolu();
+        wyswietlanieTablicy();
 
 
     }
@@ -204,15 +204,13 @@ public class Program {
     };
     private void wyswietlanieTablicy(){
         for(int i = 0; i < tablicaStringow.size();i++){
-//            System.out.println(tablicaFigur.get(i).getFiguraString());
-//            System.out.println(tablicaFigur.get(i).getCechaString());
-//            System.out.println(tablicaFigur.get(i).getPoleString());
+            System.out.println(tablicaFigur.get(i).getFiguraString());
+            System.out.println(tablicaFigur.get(i).getCechaString());
+            System.out.println(tablicaFigur.get(i).getPoleString());
             tablicaStringow.get(i);
         }
     }
-    public void setTablica(List<String> temp){
-        tablicaStringow = temp;
-    }
+
 }
 
 

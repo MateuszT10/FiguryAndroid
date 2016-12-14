@@ -20,13 +20,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista);
         Program program = new Program(); //obiekt klasy program
         utworzNFigur(7, program); // tworzenie figur
-        tablicaStringow(program.tablicaFigur); // tablica stringow do wyswietlania w gridzie
         GridView gridview = (GridView) findViewById(R.id.gridview);
+        gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
 
     }
+
+
     private List<String> tablicaStringow(List<Figura> tempFigury){ //zwraca tablice stringow do wyswietlania w gridzie
         List<String> tablicaStringow = new ArrayList<String>();
-        for(int i=0; i<tempFigury.size();i++){
+        for(int i=0; i<tempFigury.size(); i++){
             tablicaStringow.add(tempFigury.get(i).getFiguraString());
             tablicaStringow.add(tempFigury.get(i).getCechaString());
             tablicaStringow.add(tempFigury.get(i).getPoleString());
@@ -34,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
         return tablicaStringow;
     }
     private void utworzNFigur(int N,Program temp){ // tworzy N Figur z zakresem wartosci cech od 0 do 1
-        for(int i =0; i<2;i++)  temp.addFigura((float)0.0,(float)1.0);
+        for(int i =0; i< N; i++)  temp.addFigura((float)0.0,(float)1.0);
     }
     private void utworzNFigur(int N,Program temp,float min,float max){ // tworzy N Figur z zakresem wartosci cech od min do max
-        for(int i =0; i<2;i++) temp.addFigura(min , max);
+        for(int i =0; i< N; i++) temp.addFigura(min , max);
     }
 
 }
