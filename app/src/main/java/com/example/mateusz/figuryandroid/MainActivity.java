@@ -26,46 +26,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    Context context;
     Program program = new Program(); //obiekt klasy program na ktorym przechowujemy tablice figur
     Integer NFigur=20;
-    boolean generowac = true;
+    String przekazanytekst;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_lista);
-                utworzNFigur(NFigur, program); // tworzenie figur
-                textView();
-    }
-    protected void onStart() {
-        super.onCreate();
-        setContentView(R.layout.activity_lista);
-                grid();
-                textView();
-    }
-
-    protected  void onResume() {
-        super.onResume();
-            utworzNFigur(NFigur,program);
-            grid();
-            textView();
-    }
-    protected  void onRestart() {
-        super.onResume();
+            odbiorDanych();
             utworzNFigur(NFigur, program); // tworzenie figur
             grid();
             textView();
     }
-    protected  void onStop() {
-        super.onStop();
-            textView();
-    }
-    protected  void onDestroy() {
-        super.onDestroy();
-    }
-    protected  void onPause() {
-        super.onPause();
-    }
+//    protected void onStart() {
+//        super.onStart();
+//        setContentView(R.layout.activity_lista);
+//                grid();
+//                textView();
+//    }
+//
+//    protected void onResume() {
+//        super.onResume();
+//        grid();
+//        textView();
+//
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { // metoda odpowiedzialna za wyswietlanie menu
@@ -145,6 +130,11 @@ public class MainActivity extends AppCompatActivity {
     }
     public void textView(){ // wyswietlanie tekstu na dole
         TextView myTextView = (TextView) findViewById(R.id.liczbaFigur);
-        myTextView.setText("Ilosc Figur: " + NFigur);
+        myTextView.setText("Ilosc Figur: " + NFigur +"\t\t\t" + przekazanytekst);
+
+    }
+    public void odbiorDanych(){
+        przekazanytekst = getIntent().getStringExtra("dane");
+        if(przekazanytekst != null) NFigur = Integer.parseInt(przekazanytekst);
     }
 }
