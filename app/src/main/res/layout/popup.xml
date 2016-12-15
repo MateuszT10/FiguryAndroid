@@ -2,18 +2,35 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@mipmap/pupaplaza">
+    android:background="@drawable/kwadracik">
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/edittextilefigur"
         android:layout_marginRight="38dp"
         android:layout_marginEnd="38dp"
+        android:fontFeatureSettings="@android:string/ok"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
+        style="@style/Widget.AppCompat.EditText"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="18sp"
+        android:typeface="monospace"
+        android:textColor="@android:color/holo_orange_light"
+        android:textStyle="normal|bold|italic"
+        android:textAlignment="center" />
+
+    <Button
+        android:text="OK!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edittextilefigur"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:fontFeatureSettings="@android:string/ok" />
+        android:layout_marginTop="36dp"
+        android:id="@+id/button" />
 </RelativeLayout>

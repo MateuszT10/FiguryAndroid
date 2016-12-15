@@ -3,11 +3,16 @@ package com.example.mateusz.figuryandroid;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.view.KeyEvent;
 import android.view.MenuInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import com.example.Figura;
 import com.example.Program;
@@ -78,6 +83,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void zmienLiczbeGenerowanychFigur() {
         startActivity(new Intent(MainActivity.this,Pop.class));
+    }
+
+    public void setNFigur(EditText editText) { // ustawia ilosc figur do generacji
+        NFigur = Integer.parseInt(editText.getText().toString());
     }
 
     private void statystyki() {
