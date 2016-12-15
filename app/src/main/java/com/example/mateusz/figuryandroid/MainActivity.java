@@ -15,14 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    public Integer N = 15;
+    Program program = new Program(); //obiekt klasy program na ktorym przechowujemy tablice figur
+    Integer NFigur=7;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista);
-
-        Program program = new Program(); //obiekt klasy program
-        utworzNFigur(7, program); // tworzenie figur
+        utworzNFigur(NFigur, program); // tworzenie figur
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
 
@@ -59,16 +58,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sortujPoCesze() {
-        Program program = new Program(); //obiekt klasy program
         program.sortujPoCesze();
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
     }
 
     private void sortujPoPolu() {
+        program.sortujPoPolu();
+        GridView gridview = (GridView) findViewById(R.id.gridview);
+        gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
     }
 
     private void sortujPoNazwie() {
+        program.sortujpoNazwie();
+        GridView gridview = (GridView) findViewById(R.id.gridview);
+        gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
     }
 
     private void zmienLiczbeGenerowanychFigur() {
@@ -79,10 +83,10 @@ public class MainActivity extends AppCompatActivity {
 
     private List<String> tablicaStringow(List<Figura> tempFigury){ //zwraca tablice stringow do wyswietlania w gridzie
         List<String> tablicaStringow = new ArrayList<String>();
-        for(int i=0; i<tempFigury.size(); i++){
+        for(int i=0; i< NFigur; i++){
             tablicaStringow.add(tempFigury.get(i).getFiguraString());
-            tablicaStringow.add(tempFigury.get(i).getCechaString());
             tablicaStringow.add(tempFigury.get(i).getPoleString());
+            tablicaStringow.add(tempFigury.get(i).getCechaString());
         }
         return tablicaStringow;
     }
