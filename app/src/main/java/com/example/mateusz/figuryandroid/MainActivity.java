@@ -1,5 +1,6 @@
 package com.example.mateusz.figuryandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuInflater;
@@ -76,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void zmienLiczbeGenerowanychFigur() {
+        startActivity(new Intent(MainActivity.this,Pop.class));
     }
 
     private void statystyki() {
