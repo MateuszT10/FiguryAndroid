@@ -33,38 +33,39 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        main();
+            setContentView(R.layout.activity_lista);
+                utworzNFigur(NFigur, program); // tworzenie figur
+                textView();
+    }
+    protected void onStart() {
+        super.onCreate();
+        setContentView(R.layout.activity_lista);
+                grid();
+                textView();
     }
 
     protected  void onResume() {
         super.onResume();
-        utworzNFigur(NFigur,program);
-        GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
-        TextView myTextView = (TextView) findViewById(R.id.liczbaFigur);
-        myTextView.setText("Ilosc Figur: " + NFigur);
+            utworzNFigur(NFigur,program);
+            grid();
+            textView();
     }
     protected  void onRestart() {
         super.onResume();
-        utworzNFigur(NFigur, program); // tworzenie figur
-        GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
-        TextView myTextView = (TextView) findViewById(R.id.liczbaFigur);
-        myTextView.setText("Ilosc Figur: " + NFigur);
+            utworzNFigur(NFigur, program); // tworzenie figur
+            grid();
+            textView();
     }
     protected  void onStop() {
         super.onStop();
-        TextView myTextView = (TextView) findViewById(R.id.liczbaFigur);
-        myTextView.setText("Ilosc Figur: " + NFigur);
+            textView();
     }
     protected  void onDestroy() {
         super.onDestroy();
-        TextView myTextView = (TextView) findViewById(R.id.liczbaFigur);
-        myTextView.setText("Ilosc Figur: " + NFigur);    }
+    }
     protected  void onPause() {
         super.onPause();
-        TextView myTextView = (TextView) findViewById(R.id.liczbaFigur);
-        myTextView.setText("Ilosc Figur: " + NFigur);    }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { // metoda odpowiedzialna za wyswietlanie menu
@@ -98,20 +99,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void sortujPoCesze() {
         program.sortujPoCesze();
-        GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
+        grid();
     }
 
     private void sortujPoPolu() {
         program.sortujPoPolu();
-        GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
+        grid();
     }
 
     private void sortujPoNazwie() {
         program.sortujpoNazwie();
-        GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
+        grid();
     }
 
     private void zmienLiczbeGenerowanychFigur() {
@@ -141,10 +139,11 @@ public class MainActivity extends AppCompatActivity {
     private void utworzNFigur(int N,Program temp,float min,float max){ // tworzy N Figur z zakresem wartosci cech od min do max
         for(int i =0; i< N; i++) temp.addFigura(min , max);
     }
-    public  void main(){
-        setContentView(R.layout.activity_lista);
-        utworzNFigur(NFigur, program); // tworzenie figur
-
+    public void grid(){ // wyswietlanie siatki z elementami
+        GridView gridview = (GridView) findViewById(R.id.gridview);
+        gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
+    }
+    public void textView(){ // wyswietlanie tekstu na dole
         TextView myTextView = (TextView) findViewById(R.id.liczbaFigur);
         myTextView.setText("Ilosc Figur: " + NFigur);
     }
