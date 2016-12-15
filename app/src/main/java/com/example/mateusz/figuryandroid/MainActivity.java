@@ -1,22 +1,14 @@
 package com.example.mateusz.figuryandroid;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.Figura;
@@ -36,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
             odbiorDanych();
             utworzNFigur(NFigur, program); // tworzenie figur
             grid();
-            textView();
     }
 //    protected void onStart() {
 //        super.onStart();
@@ -98,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void zmienLiczbeGenerowanychFigur() {
-        startActivity(new Intent(MainActivity.this,Test.class));
+        startActivity(new Intent(MainActivity.this,ZmianaFigur.class));
     }
 
     public void setNFigur(EditText editText) { // ustawia ilosc figur do generacji
@@ -107,6 +98,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void statystyki() {
+        List<String> tablicaStringow = new ArrayList<String>(9);
+            tablicaStringow.add(Float.toString(program.liczbaKwadratow()));
+            tablicaStringow.add(Float.toString(program.sumaPolKwadratow()));
+            tablicaStringow.add(Float.toString(program.sumaPrzekatnychKwadratow()));
+
+            tablicaStringow.add(Float.toString(program.liczbaKol()));
+            tablicaStringow.add(Float.toString(program.sumaPolKol()));
+            tablicaStringow.add(Float.toString(program.sumaSrednicyKol()));
+
+            tablicaStringow.add(Float.toString(program.liczbaTrojkatow()));
+            tablicaStringow.add(Float.toString(program.sumaPolTrojkatow()));
+            tablicaStringow.add(Float.toString(program.sumaWysokosciTrojkatow()));
+
+
+
+        GridView gridview = (GridView) findViewById(R.id.gridview);
+        gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
     }
 
     private List<String> tablicaStringow(List<Figura> tempFigury){ //zwraca tablice stringow do wyswietlania w gridzie
@@ -127,11 +135,6 @@ public class MainActivity extends AppCompatActivity {
     public void grid(){ // wyswietlanie siatki z elementami
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
-    }
-    public void textView(){ // wyswietlanie tekstu na dole
-        TextView myTextView = (TextView) findViewById(R.id.liczbaFigur);
-        myTextView.setText("Ilosc Figur: " + NFigur +"\t\t\t" + przekazanytekst);
-
     }
     public void odbiorDanych(){
         przekazanytekst = getIntent().getStringExtra("dane");
