@@ -113,8 +113,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
+        GridView gridview = (GridView) findViewById(R.id.gridstatystyki);
+        gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow));
     }
 
     private List<String> tablicaStringow(List<Figura> tempFigury){ //zwraca tablice stringow do wyswietlania w gridzie
