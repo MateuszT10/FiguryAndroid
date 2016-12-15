@@ -1,17 +1,22 @@
 package com.example.mateusz.figuryandroid;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.Figura;
@@ -21,17 +26,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    Context context;
     Program program = new Program(); //obiekt klasy program na ktorym przechowujemy tablice figur
-    Integer NFigur=7;
+    Integer NFigur=20;
+    boolean generowac = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista);
+        main();
+    }
+
+    protected  void onResume() {
+        super.onResume();
+        utworzNFigur(NFigur,program);
+        GridView gridview = (GridView) findViewById(R.id.gridview);
+        gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
+        TextView myTextView = (TextView) findViewById(R.id.liczbaFigur);
+        myTextView.setText("Ilosc Figur: " + NFigur);
+    }
+    protected  void onRestart() {
+        super.onResume();
         utworzNFigur(NFigur, program); // tworzenie figur
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
-
+        TextView myTextView = (TextView) findViewById(R.id.liczbaFigur);
+        myTextView.setText("Ilosc Figur: " + NFigur);
     }
+    protected  void onStop() {
+        super.onStop();
+        TextView myTextView = (TextView) findViewById(R.id.liczbaFigur);
+        myTextView.setText("Ilosc Figur: " + NFigur);
+    }
+    protected  void onDestroy() {
+        super.onDestroy();
+        TextView myTextView = (TextView) findViewById(R.id.liczbaFigur);
+        myTextView.setText("Ilosc Figur: " + NFigur);    }
+    protected  void onPause() {
+        super.onPause();
+        TextView myTextView = (TextView) findViewById(R.id.liczbaFigur);
+        myTextView.setText("Ilosc Figur: " + NFigur);    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { // metoda odpowiedzialna za wyswietlanie menu
@@ -82,11 +115,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void zmienLiczbeGenerowanychFigur() {
-        startActivity(new Intent(MainActivity.this,Pop.class));
+        startActivity(new Intent(MainActivity.this,Test.class));
     }
 
     public void setNFigur(EditText editText) { // ustawia ilosc figur do generacji
         NFigur = Integer.parseInt(editText.getText().toString());
+        utworzNFigur(NFigur,program);
     }
 
     private void statystyki() {
@@ -107,5 +141,11 @@ public class MainActivity extends AppCompatActivity {
     private void utworzNFigur(int N,Program temp,float min,float max){ // tworzy N Figur z zakresem wartosci cech od min do max
         for(int i =0; i< N; i++) temp.addFigura(min , max);
     }
+    public  void main(){
+        setContentView(R.layout.activity_lista);
+        utworzNFigur(NFigur, program); // tworzenie figur
 
+        TextView myTextView = (TextView) findViewById(R.id.liczbaFigur);
+        myTextView.setText("Ilosc Figur: " + NFigur);
+    }
 }
