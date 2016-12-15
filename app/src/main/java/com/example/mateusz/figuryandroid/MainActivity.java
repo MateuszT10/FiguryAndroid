@@ -59,6 +59,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sortujPoCesze() {
+        Program program = new Program(); //obiekt klasy program
+        program.sortujPoCesze();
+        GridView gridview = (GridView) findViewById(R.id.gridview);
+        gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
     }
 
     private void sortujPoPolu() {
