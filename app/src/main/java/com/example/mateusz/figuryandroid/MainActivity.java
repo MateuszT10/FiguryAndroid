@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista);
+
         Program program = new Program(); //obiekt klasy program
         utworzNFigur(7, program); // tworzenie figur
         GridView gridview = (GridView) findViewById(R.id.gridview);
