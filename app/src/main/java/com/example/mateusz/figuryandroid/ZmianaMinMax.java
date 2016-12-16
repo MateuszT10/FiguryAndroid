@@ -40,6 +40,9 @@ public class ZmianaMinMax extends Activity implements OnClickListener {
             else if(Integer.parseInt(max.getText().toString()) > 100) {
                 Toast(2);
             }
+            else if(Integer.parseInt(max.getText().toString()) < Integer.parseInt(min.getText().toString())) {
+                Toast(3);
+            }
             else {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 Toast();
@@ -59,6 +62,7 @@ public class ZmianaMinMax extends Activity implements OnClickListener {
         CharSequence text;
         if(i == 1)  text = String.format("Wartosc cechy minimalnej wieksza od 100 !!! ");
         else if (i == 2)  text = String.format("Wartosc cechy minimalnej wieksza od 100 !!! ");
+        else if (i == 3)  text = String.format("Wartosc minimalna nie może być większa od maksymalnej!!!");
         else text = String.format("Niemozliwy warunek");
 
         int duration = Toast.LENGTH_SHORT;
