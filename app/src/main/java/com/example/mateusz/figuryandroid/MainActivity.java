@@ -2,7 +2,6 @@ package com.example.mateusz.figuryandroid;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuInflater;
 import android.view.Menu;
@@ -10,12 +9,10 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.TextView;
 
 import com.example.Figura;
 import com.example.Program;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,13 +20,25 @@ public class MainActivity extends AppCompatActivity  {
     Program program = new Program(); //obiekt klasy program na ktorym przechowujemy tablice figur
     Integer NFigur=20;
     String przekazanytekst;
+    ArrayList<String> minmax;
+    Float min = (float)0;
+    Float max = (float)1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_lista);
-            odbiorDanych();
-            utworzNFigur(NFigur, program); // tworzenie figur
+            odbiorDanychZmienFigure();
+            odbiorDanychMinMax();
+            utworzNFigur(NFigur,program,min,max); // tworzenie figur
             grid();
+    }
+
+    private void odbiorDanychMinMax() {
+        minmax = (ArrayList<String>) getIntent().getSerializableExtra("minmax");
+        if(minmax != null) {
+            min = Float.parseFloat(minmax.get(0));
+            max= Float.parseFloat(minmax.get(1));
+        }
     }
 
     @Override
@@ -48,6 +57,9 @@ public class MainActivity extends AppCompatActivity  {
             case R.id.zmien_liczbe_generowanych_figur:
                 zmienLiczbeGenerowanychFigur();
                 return true;
+            case R.id.zmien_min_max:
+                zmienMinMax();
+                return true;
             case R.id.sortuj_po_nazwie:
                 sortujPoNazwie();
                 return true;
@@ -60,6 +72,11 @@ public class MainActivity extends AppCompatActivity  {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void zmienMinMax() {
+        startActivity(new Intent(MainActivity.this,ZmianaMinMax.class));
+
     }
 
     private void sortujPoCesze() {
@@ -124,7 +141,7 @@ public class MainActivity extends AppCompatActivity  {
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
     }
-    public void odbiorDanych(){
+    public void odbiorDanychZmienFigure(){
         przekazanytekst = getIntent().getStringExtra("dane");
         if(przekazanytekst != null) NFigur = Integer.parseInt(przekazanytekst);
     }
