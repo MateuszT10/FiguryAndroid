@@ -15,10 +15,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Statystyki"
-            android:theme="@style/AppTheme.CustomTheme"
-            > </activity>>
-        <activity android:name=".ZmianaFigur" > </activity>>
+        <activity android:name=".Statystyki"></activity>
+        >
+        <activity android:name=".ZmianaFigur"></activity>
+        >
+        <activity
+            android:name=".ZmianaMinMax"
+            android:label="@string/title_activity_zmiana_min_max"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

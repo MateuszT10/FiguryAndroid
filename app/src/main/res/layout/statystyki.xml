@@ -5,19 +5,6 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/edittextilefigur"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/textView"
-        android:textStyle="normal|bold|italic"
-        android:textColor="@android:color/holo_red_dark"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textSize="36sp"
-        android:text="Statystyki" />
-
-    <TextView
         android:text="Kwadrat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,14 +17,6 @@
         android:fontFamily="sans-serif"
         android:textAllCaps="true"
         android:textColor="@android:color/holo_red_dark" />
-
-    <GridView
-        android:id="@+id/gridstatystyki"
-        android:numColumns="3"
-        android:layout_height="200dp"
-        android:layout_width="250dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
 
     <TextView
         android:text="Kolo"
@@ -53,48 +32,6 @@
         android:layout_alignRight="@+id/trojkat"
         android:layout_alignEnd="@+id/trojkat"
         android:textColor="@android:color/holo_green_light" />
-
-    <TextView
-        android:text="Ile?"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:id="@+id/ile"
-        android:textStyle="normal|bold"
-        android:textAllCaps="true"
-        android:layout_above="@+id/gridstatystyki"
-        android:layout_alignLeft="@+id/gridstatystyki"
-        android:layout_alignStart="@+id/gridstatystyki"
-        android:layout_marginLeft="21dp"
-        android:layout_marginStart="21dp"
-        android:textColor="@android:color/holo_orange_dark" />
-
-    <TextView
-        android:text="Suma pol"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/sumapol"
-        android:textStyle="normal|bold"
-        android:textAllCaps="false"
-        android:layout_alignBaseline="@+id/ile"
-        android:layout_alignBottom="@+id/ile"
-        android:layout_toLeftOf="@+id/suma cech"
-        android:layout_toStartOf="@+id/suma cech"
-        android:layout_marginRight="24dp"
-        android:layout_marginEnd="24dp"
-        android:textColor="@android:color/holo_orange_light" />
-
-    <TextView
-        android:text="Suma cech"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/suma cech"
-        android:textStyle="normal|bold"
-        android:layout_alignBaseline="@+id/sumapol"
-        android:layout_alignBottom="@+id/sumapol"
-        android:layout_alignRight="@+id/gridstatystyki"
-        android:layout_alignEnd="@+id/gridstatystyki"
-        android:textColor="@android:color/holo_purple" />
 
     <TextView
         android:text="Trojkat"
@@ -121,4 +58,69 @@
         android:textAlignment="center"
         android:textColor="@android:color/holo_red_dark"
         android:background="@drawable/kwadracik" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textStyle="normal|bold|italic"
+        android:textColor="@android:color/holo_red_dark"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="36sp"
+        android:text="Statystyki"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/kolo"
+        android:layout_alignStart="@+id/kolo" />
+
+    <GridView
+        android:id="@+id/gridstatystyki"
+        android:numColumns="3"
+        android:layout_height="200dp"
+        android:layout_width="250dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="29dp"
+        android:layout_marginEnd="29dp" />
+
+    <TextView
+        android:text="Ile?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:id="@+id/ile"
+        android:textStyle="normal|bold"
+        android:textAllCaps="true"
+        android:textColor="@android:color/holo_orange_dark"
+        android:layout_above="@+id/gridstatystyki"
+        android:layout_alignLeft="@+id/gridstatystyki"
+        android:layout_alignStart="@+id/gridstatystyki" />
+
+    <TextView
+        android:text="Suma pol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sumapol"
+        android:textStyle="normal|bold"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_orange_light"
+        android:layout_alignBaseline="@+id/ile"
+        android:layout_alignBottom="@+id/ile"
+        android:layout_alignRight="@+id/wroc"
+        android:layout_alignEnd="@+id/wroc" />
+
+    <TextView
+        android:text="Suma cech"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sumacech"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/holo_purple"
+        android:layout_alignBaseline="@+id/sumapol"
+        android:layout_alignBottom="@+id/sumapol"
+        android:layout_toRightOf="@+id/wroc"
+        android:layout_toEndOf="@+id/wroc"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp" />
 </RelativeLayout>

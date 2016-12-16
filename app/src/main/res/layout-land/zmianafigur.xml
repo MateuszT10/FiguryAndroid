@@ -60,17 +60,6 @@
         android:inputType="number" />
 
     <Button
-        android:text="Wyjdz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/wyjdz"
-        android:layout_marginLeft="57dp"
-        android:layout_marginStart="57dp"
-        android:layout_alignTop="@+id/ok"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
 
         android:layout_width="wrap_content"
 
@@ -82,11 +71,8 @@
 
         android:text="Ok!"
         android:textSize="18sp"
-        android:layout_marginTop="34dp"
-        android:layout_marginRight="70dp"
-        android:layout_marginEnd="70dp"
+        android:layout_marginTop="35dp"
         android:layout_below="@+id/Edit"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

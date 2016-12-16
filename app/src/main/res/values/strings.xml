@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FiguryV2.0</string>
+    <string name="title_activity_zmiana_min_max">ZmianaMinMax</string>
 </resources>

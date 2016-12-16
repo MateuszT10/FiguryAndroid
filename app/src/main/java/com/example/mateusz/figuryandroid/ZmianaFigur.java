@@ -16,7 +16,6 @@ public class ZmianaFigur extends Activity implements OnClickListener {
     private EditText edit;
     private TextView tekst;
     private Button ok;
-    private Button wyjdz;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -2,6 +2,7 @@ package com.example.mateusz.figuryandroid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuInflater;
 import android.view.Menu;
@@ -14,10 +15,11 @@ import android.widget.TextView;
 import com.example.Figura;
 import com.example.Program;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
     Program program = new Program(); //obiekt klasy program na ktorym przechowujemy tablice figur
     Integer NFigur=20;
     String przekazanytekst;
@@ -29,19 +31,6 @@ public class MainActivity extends AppCompatActivity {
             utworzNFigur(NFigur, program); // tworzenie figur
             grid();
     }
-//    protected void onStart() {
-//        super.onStart();
-//        setContentView(R.layout.activity_lista);
-//                grid();
-//                textView();
-//    }
-//
-//    protected void onResume() {
-//        super.onResume();
-//        grid();
-//        textView();
-//
-//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { // metoda odpowiedzialna za wyswietlanie menu
@@ -98,23 +87,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void statystyki() {
-        List<String> tablicaStringow = new ArrayList<String>(9);
-            tablicaStringow.add(Float.toString(program.liczbaKwadratow()));
-            tablicaStringow.add(Float.toString(program.sumaPolKwadratow()));
-            tablicaStringow.add(Float.toString(program.sumaPrzekatnychKwadratow()));
+        ArrayList<String> tablica = new ArrayList<String>();
+        tablica.add(String.format(Integer.toString(program.liczbaKwadratow())));
+        tablica.add(String.format("%.3f",(program.sumaPolKwadratow())));
+        tablica.add(String.format("%.3f",(program.sumaPrzekatnychKwadratow())));
 
-            tablicaStringow.add(Float.toString(program.liczbaKol()));
-            tablicaStringow.add(Float.toString(program.sumaPolKol()));
-            tablicaStringow.add(Float.toString(program.sumaSrednicyKol()));
+        tablica.add(String.format(Integer.toString(program.liczbaKol())));
+        tablica.add(String.format("%.3f",(program.sumaPolKol())));
+        tablica.add(String.format("%.3f",(program.sumaSrednicyKol())));
 
-            tablicaStringow.add(Float.toString(program.liczbaTrojkatow()));
-            tablicaStringow.add(Float.toString(program.sumaPolTrojkatow()));
-            tablicaStringow.add(Float.toString(program.sumaWysokosciTrojkatow()));
+        tablica.add(String.format(Integer.toString(program.liczbaTrojkatow())));
+        tablica.add(String.format("%.3f",(program.sumaPolTrojkatow())));
+        tablica.add(String.format("%.3f",(program.sumaWysokosciTrojkatow())));
 
-
-
-        GridView gridview = (GridView) findViewById(R.id.gridstatystyki);
-        gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow));
+        Intent intent = new Intent(this, Statystyki.class);
+        intent.putExtra("tablica", tablica);
+        startActivity(intent);
     }
 
     private List<String> tablicaStringow(List<Figura> tempFigury){ //zwraca tablice stringow do wyswietlania w gridzie
