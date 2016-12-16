@@ -1,29 +1,77 @@
 package com.example.mateusz.figuryandroid;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class ZmianaMinMax extends AppCompatActivity {
+
+public class ZmianaMinMax extends Activity implements OnClickListener {
+    private EditText edit;
+    private TextView tekst;
+    private Button ok;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_zmiana_min_max);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.zmianaminmax);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        edit = (EditText)findViewById(R.id.max);
+        ok = (Button)findViewById(R.id.ok);
+        ok.setOnClickListener(this);
+        tekst = (TextView)findViewById(R.id.minText);
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        setContentView(R.layout.zmianafigur);
+
+        edit = (EditText)findViewById(R.id.max);
+        ok = (Button)findViewById(R.id.ok);
+        ok.setOnClickListener(this);
+        tekst = (TextView)findViewById(R.id.minText);
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        setContentView(R.layout.zmianafigur);
+        edit = (EditText)findViewById(R.id.max);
+        ok = (Button)findViewById(R.id.ok);
+        ok.setOnClickListener(this);
+        tekst = (TextView)findViewById(R.id.minText);
     }
 
+    public void onClick(View v) {
+        tekst.setText(edit.getText().toString());
+        String przekaz=edit.getText().toString();
+        if((Integer.parseInt(przekaz) > 30) ||(Integer.parseInt(przekaz) < 1)){
+            Toast(1);
+        }
+        else {
+            Toast();
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.putExtra("dane", przekaz);
+            startActivity(intent);
+        }
+    }
+    private void Toast(){
+        Context context = getApplicationContext();
+        CharSequence text = String.format("Liczba figur to " + edit.getText().toString());
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+    private void Toast(int i){
+        Context context = getApplicationContext();
+        CharSequence text = String.format("Liczba większa od 0 i mniejsza od 30 !!! ");
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
 }

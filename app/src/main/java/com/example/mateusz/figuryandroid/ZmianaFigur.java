@@ -22,29 +22,29 @@ public class ZmianaFigur extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.zmianafigur);
 
-        edit = (EditText)findViewById(R.id.Edit);
+        edit = (EditText)findViewById(R.id.max);
         ok = (Button)findViewById(R.id.ok);
         ok.setOnClickListener(this);
-        tekst = (TextView)findViewById(R.id.Tekst);
+        tekst = (TextView)findViewById(R.id.minText);
     }
     @Override
     public void onStart() {
         super.onStart();
         setContentView(R.layout.zmianafigur);
 
-        edit = (EditText)findViewById(R.id.Edit);
+        edit = (EditText)findViewById(R.id.max);
         ok = (Button)findViewById(R.id.ok);
         ok.setOnClickListener(this);
-        tekst = (TextView)findViewById(R.id.Tekst);
+        tekst = (TextView)findViewById(R.id.minText);
     }
     @Override
     public void onResume() {
         super.onResume();
         setContentView(R.layout.zmianafigur);
-        edit = (EditText)findViewById(R.id.Edit);
+        edit = (EditText)findViewById(R.id.max);
         ok = (Button)findViewById(R.id.ok);
         ok.setOnClickListener(this);
-        tekst = (TextView)findViewById(R.id.Tekst);
+        tekst = (TextView)findViewById(R.id.minText);
     }
 
     public void onClick(View v) {

@@ -1,6 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</LinearLayout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="fill_parent"
+
+    android:layout_height="fill_parent"
+
+    android:orientation="vertical" >
+
+
+    <TextView
+
+        android:layout_width="fill_parent"
+
+        android:layout_height="wrap_content"
+
+        android:text="Zmiana min max"
+        android:height="50sp"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:textColor="@android:color/holo_blue_light"
+        android:textStyle="normal|bold|italic"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView2" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/wroczminmax"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+
+            android:layout_width="100sp"
+
+            android:id="@+id/minText"
+            android:height="50sp"
+            android:textSize="24sp"
+            android:textColor="@android:color/holo_blue_light"
+            android:textStyle="normal|bold"
+            android:textAlignment="center"
+            android:layout_weight="1"
+            android:layout_height="50sp"
+            android:layout_above="@+id/min"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/wroczminmax"
+            android:layout_toStartOf="@+id/wroczminmax" />
+
+        <EditText
+
+            android:id="@+id/max"
+            android:textSize="24sp"
+            android:textStyle="normal|bold|italic"
+            android:textColor="@android:color/holo_red_dark"
+            android:textAlignment="center"
+            android:inputType="number"
+            android:layout_weight="1"
+            android:layout_width="100sp"
+            android:layout_height="50sp"
+            android:layout_marginBottom="55dp"
+            android:layout_above="@+id/wroczminmax"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/wroczminmax"
+            android:layout_toEndOf="@+id/wroczminmax" />
+
+        <EditText
+            android:layout_width="100sp"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/min"
+            android:layout_height="50sp"
+            android:layout_below="@+id/maxTest"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/minText"
+            android:layout_alignEnd="@+id/minText" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="100sp"
+            android:id="@+id/maxTest"
+            android:layout_height="50sp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignLeft="@+id/max"
+            android:layout_alignStart="@+id/max"
+            android:layout_above="@+id/max" />
+    </RelativeLayout>
+
+</RelativeLayout>
