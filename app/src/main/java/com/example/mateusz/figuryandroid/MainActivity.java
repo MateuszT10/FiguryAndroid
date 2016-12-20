@@ -19,7 +19,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity  {
     Program program = new Program(); //obiekt klasy program na ktorym przechowujemy tablice figur
     Integer NFigur=20;
-    String przekazanytekst;
+    String przekazanytekst; //odbior danych do zmiany liczby generowanych figur
     ArrayList<String> minmax;
     Float min = (float)0;
     Float max = (float)1;
