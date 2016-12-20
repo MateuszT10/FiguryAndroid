@@ -11,11 +11,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 
 public class ZmianaFigur extends Activity implements OnClickListener {
     private EditText edit;
     private TextView tekst;
     private Button ok;
+    private ArrayList<String> minmax;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,8 @@ public class ZmianaFigur extends Activity implements OnClickListener {
         ok = (Button)findViewById(R.id.ok);
         ok.setOnClickListener(this);
         tekst = (TextView)findViewById(R.id.minText);
+        minmax = (ArrayList<String>) getIntent().getSerializableExtra("minmax"); //odbior ustawionej wartosci min max
+
     }
     @Override
     public void onStart() {
@@ -49,8 +54,12 @@ public class ZmianaFigur extends Activity implements OnClickListener {
 
     public void onClick(View v) {
         tekst.setText(edit.getText().toString());
-        String przekaz=edit.getText().toString();
-        if((Integer.parseInt(przekaz) > 30) ||(Integer.parseInt(przekaz) < 1)){
+        ArrayList<String> przekaz = new ArrayList<String>(2);
+        przekaz.add(edit.getText().toString());
+        przekaz.add(minmax.get(0));
+        przekaz.add(minmax.get(1));
+
+        if((Integer.parseInt(przekaz.get(0)) > 30) ||(Integer.parseInt(przekaz.get(0)) < 1)){
            Toast(1);
         }
         else {

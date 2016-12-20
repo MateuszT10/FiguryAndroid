@@ -24,7 +24,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity  {
     Program program = new Program(); //obiekt klasy program na ktorym przechowujemy tablice figur
     Integer NFigur=20;
-    String przekazanytekst; //odbior danych do zmiany liczby generowanych figur
+    ArrayList<String> zmianafigur; //odbior danych do zmiany liczby generowanych figur
     int position; //kliknieta pozycja na gridview
     ArrayList<String> minmax;
     Float min = (float)0;
@@ -39,11 +39,12 @@ public class MainActivity extends AppCompatActivity  {
             grid();
     }
 
-    private void odbiorDanychMinMax() {
+    public void odbiorDanychMinMax() {
         minmax = (ArrayList<String>) getIntent().getSerializableExtra("minmax");
         if(minmax != null) {
             min = Float.parseFloat(minmax.get(0));
             max= Float.parseFloat(minmax.get(1));
+            NFigur= Integer.parseInt(minmax.get(2));
         }
     }
 
@@ -81,7 +82,10 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     private void zmienMinMax() {
-        startActivity(new Intent(MainActivity.this,ZmianaMinMax.class));
+        String NFigurString = NFigur.toString();
+        Intent intent = new Intent(getApplicationContext(), ZmianaMinMax.class);
+        intent.putExtra("NFigur", NFigurString);
+        startActivity(intent);
 
     }
 
@@ -101,7 +105,13 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     private void zmienLiczbeGenerowanychFigur() {
-        startActivity(new Intent(MainActivity.this,ZmianaFigur.class));
+        ArrayList<String> przekaz = new ArrayList<String>(3);
+        przekaz.add(min.toString()); //przekaz wartosc min do aktywnosci
+        przekaz.add(max.toString()); //przekaz wartosc max do aktywnosci
+
+        Intent intent = new Intent(getApplicationContext(), ZmianaFigur.class);
+        intent.putExtra("minmax", przekaz);
+        startActivity(intent);
     }
 
     public void setNFigur(EditText editText) { // ustawia ilosc figur do generacji
@@ -149,8 +159,12 @@ public class MainActivity extends AppCompatActivity  {
         gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
     }
     public void odbiorDanychZmienFigure(){
-        przekazanytekst = getIntent().getStringExtra("dane");
-        if(przekazanytekst != null) NFigur = Integer.parseInt(przekazanytekst);
+        zmianafigur = (ArrayList<String>) getIntent().getSerializableExtra("dane");
+        if(zmianafigur != null) {
+            NFigur = Integer.parseInt(zmianafigur.get(0));
+            min = Float.parseFloat(zmianafigur.get(1));
+            max = Float.parseFloat(zmianafigur.get(2));
+        }
     }
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v,

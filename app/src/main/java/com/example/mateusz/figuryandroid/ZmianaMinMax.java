@@ -18,6 +18,7 @@ public class ZmianaMinMax extends Activity implements OnClickListener {
     private EditText min;
     private EditText max;
     private Button button;
+    private String NFigur;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,13 +28,16 @@ public class ZmianaMinMax extends Activity implements OnClickListener {
         max = (EditText) findViewById(R.id.max);
         button = (Button) findViewById(R.id.wroczminmax);
         button.setOnClickListener(this);
+        NFigur = getIntent().getStringExtra("NFigur"); //odebranie ilosci figur do generacji
     }
 
 
     public void onClick(View V) {
-        ArrayList<String> przekaz = new ArrayList<String>(2);
+        ArrayList<String> przekaz = new ArrayList<String>(3);
         przekaz.add(min.getText().toString());
         przekaz.add(max.getText().toString());
+        przekaz.add(NFigur);
+
             if(Integer.parseInt(min.getText().toString()) > 100) {
                 Toast(1);
             }
