@@ -3,23 +3,29 @@ package com.example.mateusz.figuryandroid;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.example.Figura;
 import com.example.Program;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity  {
     Program program = new Program(); //obiekt klasy program na ktorym przechowujemy tablice figur
     Integer NFigur=20;
     String przekazanytekst; //odbior danych do zmiany liczby generowanych figur
+    int position; //kliknieta pozycja na gridview
     ArrayList<String> minmax;
     Float min = (float)0;
     Float max = (float)1;
@@ -124,7 +130,7 @@ public class MainActivity extends AppCompatActivity  {
 
     private List<String> tablicaStringow(List<Figura> tempFigury){ //zwraca tablice stringow do wyswietlania w gridzie
         List<String> tablicaStringow = new ArrayList<String>();
-        for(int i=0; i< NFigur; i++){
+        for(int i=0; i< program.tablicaFigur.size(); i++){
             tablicaStringow.add(tempFigury.get(i).getFiguraString());
             tablicaStringow.add(tempFigury.get(i).getPoleString());
             tablicaStringow.add(tempFigury.get(i).getCechaString());
@@ -139,10 +145,54 @@ public class MainActivity extends AppCompatActivity  {
     }
     public void grid(){ // wyswietlanie siatki z elementami
         GridView gridview = (GridView) findViewById(R.id.gridview);
+        registerForContextMenu(gridview); //dla menu kontekstowego
         gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cell,tablicaStringow(program.tablicaFigur)));
     }
     public void odbiorDanychZmienFigure(){
         przekazanytekst = getIntent().getStringExtra("dane");
         if(przekazanytekst != null) NFigur = Integer.parseInt(przekazanytekst);
     }
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        menu.add(0, v.getId(), 0, "Duplikuj");
+        menu.add(0, v.getId(), 0, "Dodaj losową figurę");
+        menu.add(0, v.getId(), 0, "Usuń wszystkie figury");
+
+        GridView gv = (GridView) v;
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+        position = info.position; //kliknieta pozycja
+    }
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        if(item.getTitle()=="Duplikuj"){duplikujWierszGrida(item.getItemId());}
+        else if(item.getTitle()=="Dodaj losową figurę"){dodajLosowa(item.getItemId());}
+        else if(item.getTitle()=="Usuń wszystkie figury"){usunWszystkie(item.getItemId());}
+        else {return false;}
+        return true;
+    }
+
+    public void dodajLosowa(int id){
+        Toast.makeText(this, "Dodaj losową figurę", Toast.LENGTH_SHORT).show();
+
+        program.addFigura(0,1);
+        grid();
+    }
+    public void usunWszystkie(int id){
+        Toast.makeText(this, "Usuń wszystkie figury", Toast.LENGTH_SHORT).show();
+
+        program.tablicaFigur.clear();
+        grid();
+    }
+    private void duplikujWierszGrida(int id) {
+        Toast.makeText(this, "Duplikuj", Toast.LENGTH_SHORT).show();
+
+        int wiersz = position/3; // zwraca wartosc wiersza
+        program.tablicaFigur.add(program.tablicaFigur.get(wiersz));
+        grid();
+    }
 }
+
+
