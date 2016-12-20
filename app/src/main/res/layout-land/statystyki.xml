@@ -1,120 +1,269 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="vertical">
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="*">
 
-    <TextView
+    <!-- Table Row 1 -->
+    <TableRow
+        android:layout_marginTop="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:text="Statystyki"
+            android:width="120dp"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="24sp"
+            android:textStyle="normal|bold|italic"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:layout_height="wrap_content"
+            android:layout_width="150sp" />
+
+    </TableRow>
+
+    <!-- Table Row 2 -->
+    <TableRow
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_height="match_parent"
+            android:id="@+id/Pustepole"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="0dp" />
+
+        <TextView
+            android:text="Ile Figur?"
+            android:id="@+id/ileFigur"
+            android:textAlignment="center"
+            android:layout_column="1"
+            android:layout_weight="1"
+
+            android:textSize="14sp"
+            android:textColor="@android:color/holo_blue_bright"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:textStyle="normal|bold|italic"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:text=" suma Cech"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/sumaCech"
+            android:layout_column="2"
+            android:layout_weight="1"
+
+            android:textSize="14sp"
+            android:textColor="@android:color/holo_green_light"
+            android:gravity="center"
+            android:textStyle="normal|bold|italic"
+            android:textAllCaps="true" />
+
+
+        <TextView
+            android:text="suma Pol"
+            android:layout_marginLeft="5dp"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="14sp"
+            android:layout_column="3"
+            android:layout_width="0dp"
+            android:id="@+id/sumaPol"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textStyle="normal|bold|italic"
+            android:textAllCaps="true" />
+    </TableRow>
+
+    <!-- Table Row 3 -->
+    <TableRow
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_height="match_parent"
+            android:id="@+id/Kwadrat"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:text="Kwadrat"
+            android:textStyle="normal|bold|italic"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_green_dark" />
+
+        <TextView
+            android:id="@+id/ileKwadratow"
+            android:textAlignment="center"
+            android:layout_column="1"
+            android:layout_weight="1"
+
+            android:textSize="16sp"
+            android:textColor="@android:color/background_dark"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_width="0dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/sumaCechKwadratow"
+            android:layout_column="2"
+            android:layout_weight="1"
+
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textColor="@android:color/background_dark"
+            android:gravity="center" />
+
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:textColor="@android:color/background_dark"
+            android:textSize="16dp"
+            android:layout_column="3"
+            android:layout_width="0dp"
+            android:id="@+id/sumaPolKwadratow"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:gravity="center" />
+    </TableRow>
+    <!-- Table Row 4 -->
+    <TableRow
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_height="match_parent"
+            android:id="@+id/Pustepole"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:text="Trojkat"
+            android:textStyle="normal|bold|italic"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_orange_dark" />
+
+        <TextView
+            android:id="@+id/ileTrojkatow"
+            android:textAlignment="center"
+            android:layout_column="1"
+            android:layout_weight="1"
+
+            android:textSize="16sp"
+            android:textColor="@android:color/background_dark"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_width="0dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/sumaCechTrojkatow"
+            android:layout_column="2"
+            android:layout_weight="1"
+
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textColor="@android:color/background_dark"
+            android:gravity="center" />
+
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:textColor="@android:color/background_dark"
+            android:textSize="16dp"
+            android:layout_column="3"
+            android:layout_width="0dp"
+            android:id="@+id/sumaPolTrojkatow"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:gravity="center" />
+    </TableRow>
+    <!-- Table Row 5 -->
+    <TableRow
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_height="match_parent"
+            android:id="@+id/Pustepole"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:text="Kolo"
+            android:textStyle="normal|bold|italic"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_light" />
+
+        <TextView
+            android:id="@+id/ileKol"
+            android:textAlignment="center"
+            android:layout_column="1"
+            android:layout_weight="1"
+
+            android:textSize="16sp"
+            android:textColor="@android:color/background_dark"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_width="0dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/sumaCechKol"
+            android:layout_column="2"
+            android:layout_weight="1"
+
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textColor="@android:color/background_dark"
+            android:gravity="center" />
+
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:textColor="@android:color/background_dark"
+            android:textSize="16dp"
+            android:layout_column="3"
+            android:layout_width="0dp"
+            android:id="@+id/sumaPolKol"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:gravity="center" />
+    </TableRow>
+
+    <TableRow
+        android:layout_marginTop="15dp"
+        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/edittextilefigur"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/textView"
-        android:textStyle="normal|bold|italic"
-        android:textColor="@android:color/holo_red_dark"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textSize="36sp"
-        android:text="Statystyki" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:text="Kwadrat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:id="@+id/Kwadrat"
-        android:layout_below="@+id/ile"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textStyle="normal|bold"
-        android:fontFamily="sans-serif"
-        android:textAllCaps="true"
-        android:textColor="@android:color/holo_red_dark" />
-
-    <TextView
-        android:text="Kolo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/kolo"
-        android:textStyle="normal|bold"
-        android:textAllCaps="true"
-        android:textAlignment="center"
-        android:layout_marginRight="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/trojkat"
-        android:layout_alignEnd="@+id/trojkat"
-        android:textColor="@android:color/holo_green_light" />
-
-    <GridView
-        android:id="@+id/gridstatystyki"
-        android:numColumns="3"
-        android:layout_height="150dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_width="400dp" />
-
-    <Button
-        android:text="Wroc!"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/wroc"
-        android:textStyle="normal|bold"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_red_dark"
-        android:background="@drawable/kwadracik"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="14dp" />
-
-    <TextView
-        android:text="Suma pol"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/sumapol"
-        android:textStyle="normal|bold"
-        android:textAllCaps="false"
-        android:textColor="@android:color/holo_orange_light"
-        android:layout_above="@+id/gridstatystyki"
-        android:layout_alignLeft="@+id/wroc"
-        android:layout_alignStart="@+id/wroc" />
-
-    <TextView
-        android:text="Suma cech"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/sumacech"
-        android:textStyle="normal|bold"
-        android:textColor="@android:color/holo_purple"
-        android:layout_above="@+id/gridstatystyki"
-        android:layout_toRightOf="@+id/wroc"
-        android:layout_toEndOf="@+id/wroc"
-        android:layout_marginLeft="33dp"
-        android:layout_marginStart="33dp" />
-
-    <TextView
-        android:text="Ile?"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ile"
-        android:textStyle="normal|bold"
-        android:textAllCaps="true"
-        android:layout_marginLeft="29dp"
-        android:layout_marginStart="29dp"
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_above="@+id/gridstatystyki"
-        android:layout_alignLeft="@+id/gridstatystyki"
-        android:layout_alignStart="@+id/gridstatystyki" />
-
-    <TextView
-        android:text="Trojkat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/trojkat"
-        android:textStyle="normal|bold"
-        android:textAllCaps="true"
-        android:textColor="@android:color/holo_blue_dark"
-        android:layout_alignBottom="@+id/gridstatystyki"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-</RelativeLayout>
+        <Button
+            android:text="wroc!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/wrocStatystyki"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="14sp"
+            android:background="@android:color/holo_green_dark" />
+    </TableRow>
+</TableLayout>

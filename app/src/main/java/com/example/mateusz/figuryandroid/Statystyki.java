@@ -26,17 +26,43 @@ import java.util.List;
  */
 public class Statystyki extends Activity implements OnClickListener {
     private Button wyjdz;
-
+    TextView t;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
             setContentView(R.layout.statystyki);
             ArrayList<String> tablica = (ArrayList<String>) getIntent().getSerializableExtra("tablica");
 
-            GridView gridview = (GridView) findViewById(R.id.gridstatystyki);
-            gridview.setAdapter(new ArrayAdapter<String>(this,R.layout.cellstat,tablica));
+        t=new TextView(this);
 
-            wyjdz = (Button)findViewById(R.id.wroc);
+        t=(TextView)findViewById(R.id.ileKwadratow);
+        t.setText("1");
+
+        t=(TextView)findViewById(R.id.ileTrojkatow);
+        t.setText("2");
+
+        t=(TextView)findViewById(R.id.ileKol);
+        t.setText("3");
+
+        t=(TextView)findViewById(R.id.sumaPolKwadratow);
+        t.setText("4");
+
+        t=(TextView)findViewById(R.id.sumaPolTrojkatow);
+        t.setText("5");
+
+        t=(TextView)findViewById(R.id.sumaPolKol);
+        t.setText("6");
+
+        t=(TextView)findViewById(R.id.sumaCechKwadratow);
+        t.setText("7");
+
+        t=(TextView)findViewById(R.id.sumaCechTrojkatow);
+        t.setText("8");
+
+        t=(TextView)findViewById(R.id.sumaCechKol);
+        t.setText("9");
+
+            wyjdz = (Button)findViewById(R.id.wrocStatystyki);
             wyjdz.setOnClickListener(this);
 
     }
