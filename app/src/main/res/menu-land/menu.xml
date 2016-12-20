@@ -9,6 +9,8 @@
         <menu>
             <item android:id="@+id/zmien_liczbe_generowanych_figur"
                 android:title="Zmien liczbe generowanych figur" />
+            <item android:id="@+id/zmien_min_max"
+                android:title="Zmien min i max" />
             <item android:id="@+id/sortuj_po_nazwie"
                 android:title="Sortuj elementy po nazwie" />
             <item android:id="@+id/sortuj_po_cesze"

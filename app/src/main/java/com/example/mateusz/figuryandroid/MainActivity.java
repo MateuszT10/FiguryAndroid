@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity  {
     public void dodajLosowa(int id){
         Toast.makeText(this, "Dodaj losową figurę", Toast.LENGTH_SHORT).show();
 
-        program.addFigura(0,1);
+        program.addFigura(min,max);
         grid();
     }
     public void usunWszystkie(int id){
