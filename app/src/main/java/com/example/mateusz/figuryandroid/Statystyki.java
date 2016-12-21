@@ -36,31 +36,31 @@ public class Statystyki extends Activity implements OnClickListener {
         t=new TextView(this);
 
         t=(TextView)findViewById(R.id.ileKwadratow);
-        t.setText("1");
+        t.setText(tablica.get(0));
 
         t=(TextView)findViewById(R.id.ileTrojkatow);
-        t.setText("2");
+        t.setText(tablica.get(1));
 
         t=(TextView)findViewById(R.id.ileKol);
-        t.setText("3");
+        t.setText(tablica.get(2));
 
         t=(TextView)findViewById(R.id.sumaPolKwadratow);
-        t.setText("4");
+        t.setText(tablica.get(3));
 
         t=(TextView)findViewById(R.id.sumaPolTrojkatow);
-        t.setText("5");
+        t.setText(tablica.get(4));
 
         t=(TextView)findViewById(R.id.sumaPolKol);
-        t.setText("6");
+        t.setText(tablica.get(5));
 
         t=(TextView)findViewById(R.id.sumaCechKwadratow);
-        t.setText("7");
+        t.setText(tablica.get(6));
 
         t=(TextView)findViewById(R.id.sumaCechTrojkatow);
-        t.setText("8");
+        t.setText(tablica.get(7));
 
         t=(TextView)findViewById(R.id.sumaCechKol);
-        t.setText("9");
+        t.setText(tablica.get(8));
 
             wyjdz = (Button)findViewById(R.id.wrocStatystyki);
             wyjdz.setOnClickListener(this);
@@ -68,7 +68,10 @@ public class Statystyki extends Activity implements OnClickListener {
     }
 
     public void onClick(View v) {
-        startActivity(new Intent(Statystyki.this,MainActivity.class));
+        Intent openMainActivity= new Intent(Statystyki.this, MainActivity.class);
+        openMainActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(openMainActivity);
+        //startActivity(new Intent(Statystyki.this,MainActivity.class));
     }
 
 }

@@ -6,23 +6,28 @@
         android:allowBackup="true"
         android:icon="@mipmap/poslady"
         android:label="Generator Figur"
+        android:configChanges="orientation|locale"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Statystyki"></activity>
+        <activity android:name=".Statystyki"
+            ></activity>
         >
-        <activity android:name=".ZmianaFigur"></activity>
+        <activity android:name=".ZmianaFigur"
+            ></activity>
         >
         <activity
             android:name=".ZmianaMinMax"
             android:label="@string/title_activity_zmiana_min_max"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            ></activity>
     </application>
 
 </manifest>

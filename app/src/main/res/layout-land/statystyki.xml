@@ -111,7 +111,9 @@
             android:textColor="@android:color/background_dark"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:layout_width="0dp" />
+            android:layout_width="0dp"
+            android:textStyle="normal|bold"
+            android:textAllCaps="true" />
 
         <TextView
             android:layout_width="0dp"
@@ -123,7 +125,9 @@
             android:textAlignment="center"
             android:textSize="16sp"
             android:textColor="@android:color/background_dark"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textStyle="normal|bold"
+            android:textAllCaps="true" />
 
 
         <TextView
@@ -136,7 +140,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textAlignment="center"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textStyle="normal|bold"
+            android:textAllCaps="true" />
     </TableRow>
     <!-- Table Row 4 -->
     <TableRow
@@ -167,7 +173,9 @@
             android:textColor="@android:color/background_dark"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:layout_width="0dp" />
+            android:layout_width="0dp"
+            android:textStyle="normal|bold"
+            android:textAllCaps="true" />
 
         <TextView
             android:layout_width="0dp"
@@ -179,7 +187,9 @@
             android:textAlignment="center"
             android:textSize="16sp"
             android:textColor="@android:color/background_dark"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textStyle="normal|bold"
+            android:textAllCaps="true" />
 
 
         <TextView
@@ -192,7 +202,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textAlignment="center"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textStyle="normal|bold"
+            android:textAllCaps="true" />
     </TableRow>
     <!-- Table Row 5 -->
     <TableRow
@@ -223,7 +235,9 @@
             android:textColor="@android:color/background_dark"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:layout_width="0dp" />
+            android:layout_width="0dp"
+            android:textStyle="normal|bold"
+            android:textAllCaps="true" />
 
         <TextView
             android:layout_width="0dp"
@@ -235,7 +249,9 @@
             android:textAlignment="center"
             android:textSize="16sp"
             android:textColor="@android:color/background_dark"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textStyle="normal|bold"
+            android:textAllCaps="true" />
 
 
         <TextView
@@ -248,7 +264,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textAlignment="center"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textStyle="normal|bold"
+            android:textAllCaps="true" />
     </TableRow>
 
     <TableRow
@@ -264,6 +282,7 @@
             android:id="@+id/wrocStatystyki"
             android:textColor="@android:color/holo_orange_dark"
             android:textSize="14sp"
-            android:background="@android:color/holo_green_dark" />
+            android:background="@android:color/holo_green_dark"
+            android:textStyle="normal|bold" />
     </TableRow>
 </TableLayout>

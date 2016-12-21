@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity  {
         }
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { // metoda odpowiedzialna za wyswietlanie menu
         MenuInflater inflater = getMenuInflater();
@@ -122,16 +123,17 @@ public class MainActivity extends AppCompatActivity  {
     private void statystyki() {
         ArrayList<String> tablica = new ArrayList<String>();
         tablica.add(String.format(Integer.toString(program.liczbaKwadratow())));
-        tablica.add(String.format("%.3f",(program.sumaPolKwadratow())));
-        tablica.add(String.format("%.3f",(program.sumaPrzekatnychKwadratow())));
-
+        tablica.add(String.format(Integer.toString(program.liczbaTrojkatow())));
         tablica.add(String.format(Integer.toString(program.liczbaKol())));
-        tablica.add(String.format("%.3f",(program.sumaPolKol())));
+
+        tablica.add(String.format("%.3f",(program.sumaPrzekatnychKwadratow())));
+        tablica.add(String.format("%.3f",(program.sumaWysokosciTrojkatow())));
         tablica.add(String.format("%.3f",(program.sumaSrednicyKol())));
 
-        tablica.add(String.format(Integer.toString(program.liczbaTrojkatow())));
+        tablica.add(String.format("%.3f",(program.sumaPolKwadratow())));
         tablica.add(String.format("%.3f",(program.sumaPolTrojkatow())));
-        tablica.add(String.format("%.3f",(program.sumaWysokosciTrojkatow())));
+        tablica.add(String.format("%.3f",(program.sumaPolKol())));
+
 
         Intent intent = new Intent(this, Statystyki.class);
         intent.putExtra("tablica", tablica);
@@ -207,6 +209,7 @@ public class MainActivity extends AppCompatActivity  {
         program.tablicaFigur.add(program.tablicaFigur.get(wiersz));
         grid();
     }
+
 }
 
 
