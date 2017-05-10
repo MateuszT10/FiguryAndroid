@@ -44,21 +44,6 @@
         android:textStyle="normal|bold"
         android:textAlignment="center" />
 
-    <EditText
-
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/max"
-        android:textSize="24sp"
-        android:layout_marginTop="27dp"
-        android:textStyle="normal|bold|italic"
-        android:textColor="@android:color/holo_red_dark"
-        android:textAlignment="center"
-        android:layout_below="@+id/minText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:inputType="number" />
-
     <Button
 
         android:layout_width="wrap_content"
@@ -69,10 +54,26 @@
 
         android:layout_gravity="center"
 
-        android:text="Ok!"
+        android:text="OK"
         android:textSize="18sp"
         android:layout_marginTop="36dp"
         android:layout_below="@+id/max"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/holo_red_dark" />
+
+    <EditText
+
+        android:id="@+id/max"
+        android:textSize="24sp"
+        android:layout_marginTop="31dp"
+        android:textStyle="normal|bold|italic"
+        android:textColor="@android:color/holo_red_dark"
+        android:textAlignment="center"
+        android:inputType="number"
+        android:layout_below="@+id/minText"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/kwadracik"
+        android:layout_height="50dp"
+        android:layout_width="150dp" />
 
 </RelativeLayout>

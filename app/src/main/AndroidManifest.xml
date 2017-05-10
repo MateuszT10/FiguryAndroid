@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/poslady"
+        android:icon="@mipmap/trojkat_launcher"
         android:label="Generator Figur"
         android:configChanges="orientation|locale"
         android:supportsRtl="true"

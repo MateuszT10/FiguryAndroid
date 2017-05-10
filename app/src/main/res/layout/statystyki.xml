@@ -272,17 +272,18 @@
     <TableRow
         android:layout_marginTop="15dp"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="50dp"
+        android:layout_height="50dp">
 
         <Button
-            android:text="wroc!"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:text="OK"
             android:id="@+id/wrocStatystyki"
-            android:textColor="@android:color/holo_orange_dark"
+            android:textColor="@android:color/holo_red_light"
             android:textSize="14sp"
             android:background="@android:color/holo_green_dark"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="@android:style/Widget.Button" />
     </TableRow>
 </TableLayout>
